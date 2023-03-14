@@ -3,17 +3,20 @@ import termcolor as colored
 from beautifultable import BeautifulTable as table
 
 # TODO: Display rules
+def display_rules():
+    pass
 
 # TODO: Check if user is ready
 
 # Define game parameters
 try:
     with open('./data/gameParameters.json', 'r') as f:
-        gameParameters = json.load(f)
-        colHeaders = gameParameters.get('boardHeaders', {}).get('columns', [])
-        rowHeaders = gameParameters.get('boardHeaders', {}).get('rows', [])
-        shipNumb = gameParameters.get('shipNumb', {})
-        gameBoardSize = gameParameters.get('gameBoardSize')
+        game_parameters = json.load(f)
+        col_headers = game_parameters.get('boardHeaders', {}).get('columns', [])
+        row_headers = game_parameters.get('boardHeaders', {}).get('rows', [])
+        ship_number = game_parameters.get('shipNumb', {})
+        game_board_size = game_parameters.get('gameBoardSize')
+        # TODO: Add turns
 except FileNotFoundError:
     print(colored('Error: ', 'red', attrs=['bold']) + colored('File not found. ', 'red') + 'Please make sure the `boardHeaders.json` file exists.')
     sys.exit()
@@ -22,20 +25,30 @@ except json.JSONDecodeError:
     sys.exit()
 
 # Create empty game board
-def createGameBoard(gameBoardSize, colHeaders, rowHeaders):
+def create_game_board(game_board_size, col_headers, row_headers):
     # Create table
-    gameBoard = table()
+    game_board = table()
 
     # Create headers
-    gameBoard.columns.header = colHeaders
-    gameBoard.rows.header = rowHeaders
+    game_board.columns.header = col_headers
+    game_board.rows.header = row_headers
     
     # Create board
-    for i in range(gameBoardSize):
-        gameBoard.rows[i] = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
+    for i in range(game_board_size):
+        game_board.rows[i] = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
     
-    print(gameBoard)
+    print(game_board)
 
-createGameBoard(gameBoardSize, colHeaders, rowHeaders)
+create_game_board(game_board_size, col_headers, row_headers)
 
-# TODO: Place ships
+# TODO: Create ships
+def create_ships():
+    pass
+
+# TODO: Generate ship location
+def get_ship_location():
+    pass
+
+# TODO: Count hit ships
+def count_hit_ships():
+    pass
