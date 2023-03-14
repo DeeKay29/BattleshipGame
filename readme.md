@@ -4,7 +4,17 @@ Battleship (also known as Sea Battle) is a strategy type guessing game for two p
 
 ## Getting started
 
-### Libraries
+Make sure you have python minium 3.1.x installed before proceeding to the next steps.
+
+### Prerequisites
+
+Make sure your pip version is up to date...
+
+```sh
+python.exe -m pip install --upgrade pip
+```
+
+... then install the required libraries.
 
 ```sh
 pip install beautifultable --user
@@ -13,3 +23,27 @@ pip install beautifultable --user
 ```sh
 python3 -m pip install --upgrade termcolor
 ```
+
+### Installation
+
+1. Clone the repo.
+
+   ```sh
+   git clone https://github.com/DeeKay29/BattleshipGame.git
+   ```
+
+2. Install required libraries.
+
+   ```sh
+   pip install
+   ```
+
+## Changelog
+
+Changes introduced in the last update:
+
+## Improvement
+
+Code development ideas:
+
+1. finish the project 🙄

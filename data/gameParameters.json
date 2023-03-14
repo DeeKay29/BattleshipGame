@@ -13,5 +13,10 @@
         "threeMasted": 2,
         "fourMasted": 1
     },
-    "gameBoardSize": 1
+    "gameBoardSize": 1,
+    "turns": {
+        "easy": 80,
+        "medium": 60,
+        "hard": 40
+    }
 }

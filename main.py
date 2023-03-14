@@ -6,7 +6,7 @@ from beautifultable import BeautifulTable as table
 def display_rules():
     pass
 
-# TODO: Check if user is ready
+# TODO: Get difficulty level from a user
 
 # Define game parameters
 try:
@@ -16,7 +16,7 @@ try:
         row_headers = game_parameters.get('boardHeaders', {}).get('rows', [])
         ship_number = game_parameters.get('shipNumb', {})
         game_board_size = game_parameters.get('gameBoardSize')
-        # TODO: Add turns
+        game_turns = game_parameters.get('turns', {})
 except FileNotFoundError:
     print(colored('Error: ', 'red', attrs=['bold']) + colored('File not found. ', 'red') + 'Please make sure the `boardHeaders.json` file exists.')
     sys.exit()
