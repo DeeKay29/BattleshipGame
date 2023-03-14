@@ -1,6 +1,10 @@
 # Battleship Game
 
-Battleship (also known as Sea Battle) is a strategy type guessing game for two players. It is played on ruled grids on which each player's fleet of warships are marked. And here we go with python code where u can play alone in battleships. Your PC would generate a board for you and you can play.
+Battleship (also known as Sea Battle) is a strategy type guessing game for two players. It is played on ruled grids on which each player's fleet of warships are marked. And here we go with python code where u can play alone in battleships. Your PC would generate a board for you and you can play without friends.
+
+The user can choose from three difficulty modes, and then start the game against the computer. If he manages to shoot down all the ships before the end of the game, he wins, and if not, his fleet is completely sunk.
+
+Join the great console gameplay today!
 
 ## Getting started
 
@@ -42,8 +46,12 @@ python3 -m pip install --upgrade termcolor
 
 Changes introduced in the last update:
 
+1. Displaying rules.
+2. Checking if user is ready to play.
+3. Choosing a difficulty level.
+
 ## Improvement
 
 Code development ideas:
 
-1. finish the project 🙄
+1. Finish the project 🙄
