@@ -12,5 +12,6 @@
         "twoMasted": 3,
         "threeMasted": 2,
         "fourMasted": 1
-    }
+    },
+    "gameBoardSize": 1
 }
