@@ -2,12 +2,17 @@ import json, sys
 import termcolor as colored
 from beautifultable import BeautifulTable as table
 
+# TODO: Display rules
+
+# TODO: Check if user is ready
+
 # Define game parameters
 try:
-    with open('./data/boardHeaders.json', 'r') as f:
-        headers = json.load(f)
-        colHeaders = headers.get('columns', {})
-        rowHeaders = headers.get('rows', {})
+    with open('./data/gameRules.json', 'r') as f:
+        gameRules = json.load(f)
+        colHeaders = gameRules.get('headers', {}).get('columns', [])
+        rowHeaders = gameRules.get('headers', {}).get('rows', [])
+        shipNumb = gameRules.get('shipNumb', {})
 except FileNotFoundError:
     print(colored('Error: ', 'red', attrs=['bold']) + colored('File not found. ', 'red') + 'Please make sure the `boardHeaders.json` file exists.')
     sys.exit()
@@ -33,3 +38,5 @@ def createGameBoard(gameBoardSize, colHeaders, rowHeaders):
     print(gameBoard)
 
 createGameBoard(gameBoardSize, colHeaders, rowHeaders)
+
+# TODO: Place ships
