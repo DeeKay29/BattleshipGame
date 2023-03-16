@@ -1,4 +1,4 @@
-import json, sys
+import json, sys, random
 import termcolor as colored
 from beautifultable import BeautifulTable as table
 
@@ -37,7 +37,7 @@ try:
         game_parameters = json.load(f)
         col_headers = game_parameters.get('boardHeaders', {}).get('columns', [])
         row_headers = game_parameters.get('boardHeaders', {}).get('rows', [])
-        ships_number = game_parameters.get('shipNumb', {})
+        ships = game_parameters.get('ships', {})
         game_board_size = game_parameters.get('gameBoardSize')
         game_turns = game_parameters.get('turns', {})
 except FileNotFoundError:
@@ -80,6 +80,55 @@ def create_game_board(game_board_size, col_headers, row_headers):
     for i in range(game_board_size):
         game_board.rows[i] = list(" " * 10)
     
-    print(game_board)
+    # Return game_board
+    return(game_board)
 
 create_game_board(game_board_size, col_headers, row_headers)
+
+# Generate ships location
+def generate_ships_location(ships, ship_name):
+    while True:
+        # Randomly choose orientation
+        orientation = random.choice(['horizontal', 'vertical'])
+        
+        # Randomly choose coordinates
+        if orientation == 'horizontal':
+            x = random.randint(0, 9 - ships.get(ship_name, {}).get('size'))
+            y = random.randint(0, 9)
+        else:
+            x = random.randint(0, 9)
+            y = random.randint(0, 9 - ships.get(ship_name, {}).get('size'))
+
+        # Return ship coordinates
+        return x, y, orientation
+
+# Check if location is free
+def is_location_free(ships_board, x, y):
+    # Check if cells are free
+    # Check if around are free cells
+    return True
+
+# Generate ships
+def generate_ships_on_board(game_board, ships, x, y, orientation):
+    # Define ship board
+    ships_board = game_board;
+    
+    # Generate single masted
+    for i in range(1, ships.get('single masted').get('quantity') + 1):
+        # Generate ship location
+        generate_ships_location(ships, 'single masted')
+        
+        # Check if location is free
+        if is_location_free(ships_board, x, y) == True:
+            pass
+        else:
+            pass
+
+    # Generate two masted
+    # Generate three masted
+    # Generate four masted
+    # Return second board (with ships)
+    return(ships_board)
+
+def game():
+    pass

@@ -7,11 +7,23 @@
             "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"
         ]
     },
-    "shipNumb": {
-        "singleMasted": 4,
-        "twoMasted": 3,
-        "threeMasted": 2,
-        "fourMasted": 1
+    "ships": {
+        "single masted": {
+            "quantity": 4,
+            "size": 1
+        },
+        "two masted": {
+            "quantity": 3,
+            "size": 2
+        },
+        "three masted": {
+            "quantity": 2,
+            "size": 3
+        },
+        "four masted": {
+            "quantity": 1,
+            "size": 4
+        }
     },
     "gameBoardSize": 1,
     "turns": {

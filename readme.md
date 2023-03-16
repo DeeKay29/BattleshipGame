@@ -46,9 +46,7 @@ python3 -m pip install --upgrade termcolor
 
 Changes introduced in the last update:
 
-1. Displaying rules.
-2. Checking if user is ready to play.
-3. Choosing a difficulty level.
+1. Generating ships location.
 
 ## Improvement
 
