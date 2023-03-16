@@ -1,8 +1,14 @@
 {
-    "generalRules": {
-
-    },
-    "difficultyLevelRules": {
-        
-    }
+    "general rules": [
+        "========== RULES ==========",
+        "Hello admiral! Your opponents have taken the coast. You must go to sea. If they manage to deposit the units, our country will suffer huge losses. For the mission to succeed, you must sink all enemy fleets. Even the smallest enemy troops can cause a lot of confusion, so be careful.",
+        "Your task will be to shoot down the enemy fleet blindly. To take a shot you will be asked to enter the coordinates of the shot (e.g. A5 or J10). For your convenience, you will have your opponent's board in front of you."
+    ],
+    "difficulty level rules": [
+        "========== DIFFICULTY LEVEL ==========",
+        "Depending on your experience, choose a difficulty level:",
+        "> E (easy) --> enemies get to the coast after 80 turns.",
+        "> M (medium) --> enemies get to the coast after 60 turns.",
+        "> H (hard) --> enemies get to the coast after 40 turns."
+    ]
 }

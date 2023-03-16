@@ -6,8 +6,6 @@ from beautifultable import BeautifulTable as table
 try:
     with open('./data/gameRules.json', 'r') as f:
         game_rules = json.load(f)
-        general_rules = game_rules.get('generalRules', {})
-        difficulty_level_rules = game_rules.get('difficultyLevelRules', {})
 except FileNotFoundError:
     print(colored('Error: ', 'red', attrs=['bold']) + colored('File not found. ', 'red') + 'Please make sure the `boardHeaders.json` file exists.')
     sys.exit()
@@ -16,7 +14,8 @@ except json.JSONDecodeError:
     sys.exit()
 
 # Display general rules
-print('< general rules >')
+for rule in game_rules['general rules']:
+    print(rule)
 
 # Check if user is ready
 while True:
@@ -35,10 +34,10 @@ while True:
 try:
     with open('./data/gameParameters.json', 'r') as f:
         game_parameters = json.load(f)
-        col_headers = game_parameters.get('boardHeaders', {}).get('columns', [])
-        row_headers = game_parameters.get('boardHeaders', {}).get('rows', [])
+        col_headers = game_parameters.get('board headers', {}).get('columns', [])
+        row_headers = game_parameters.get('board headers', {}).get('rows', [])
         ships = game_parameters.get('ships', {})
-        game_board_size = game_parameters.get('gameBoardSize')
+        game_board_size = game_parameters.get('game board size')
         game_turns = game_parameters.get('turns', {})
 except FileNotFoundError:
     print(colored('Error: ', 'red', attrs=['bold']) + colored('File not found. ', 'red') + 'Please make sure the `boardHeaders.json` file exists.')
@@ -48,7 +47,8 @@ except json.JSONDecodeError:
     sys.exit()
 
 # Display difficulty level rules
-print('< difficulty level rules >')
+for rule in game_rules['difficulty level rules']:
+    print(rule)
 
 # Get difficulty level from a user
 while True:

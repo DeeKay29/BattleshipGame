@@ -46,7 +46,8 @@ python3 -m pip install --upgrade termcolor
 
 Changes introduced in the last update:
 
-1. Generating ships location.
+1. Rebuilding the json files.
+2. Displaying rules.
 
 ## Improvement
 
