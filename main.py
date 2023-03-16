@@ -1,5 +1,5 @@
 import json, sys, random
-import termcolor as colored
+from termcolor import colored
 from beautifultable import BeautifulTable as table
 
 # Define game rules
@@ -75,11 +75,11 @@ def create_game_board(game_board_size, col_headers, row_headers):
     # Create headers
     game_board.columns.header = col_headers
     game_board.rows.header = row_headers
-    
+
     # Create board
     for i in range(game_board_size):
         game_board.rows[i] = list(" " * 10)
-    
+
     # Return game_board
     return(game_board)
 
@@ -90,8 +90,8 @@ def generate_ships_location(ships, ship_name):
     while True:
         # Randomly choose orientation
         orientation = random.choice(['horizontal', 'vertical'])
-        
-        # Randomly choose coordinates
+
+        # Randomly choose starting point coordinates
         if orientation == 'horizontal':
             x = random.randint(0, 9 - ships.get(ship_name, {}).get('size'))
             y = random.randint(0, 9)
@@ -99,36 +99,128 @@ def generate_ships_location(ships, ship_name):
             x = random.randint(0, 9)
             y = random.randint(0, 9 - ships.get(ship_name, {}).get('size'))
 
-        # Return ship coordinates
+        # Return ship location
         return x, y, orientation
 
-# Check if location is free
-def is_location_free(ships_board, x, y):
-    # Check if cells are free
-    # Check if around are free cells
-    return True
+# Generate ships coordinates
+def generate_ships_coordinates(ship_name):
+    # Generate ship location
+    x, y, orientation = generate_ships_location(ships, ship_name)
 
-# Generate ships
-def generate_ships_on_board(game_board, ships, x, y, orientation):
+    # Generate all ship coordinates
+    if orientation == 'horizontal':
+        # Set the initial value for x
+        x_start = x
+
+        # Set the final value for x
+        x_stop = x_start + ships.get(ship_name, {}).get('size')
+
+        # Create an array of coordinates
+        coordinates = []
+
+        # Add a tuple with coordinates to the array
+        for x in range(x_start, x_stop):
+            coordinates.append((x, y))
+
+        # Return coordinates
+        return coordinates
+    else:
+        # Set the initial value for y
+        y_start = y
+
+        # Set the final value for y
+        y_stop = y_start + ships.get(ship_name, {}).get('size')
+
+        # Create an array of coordinates
+        coordinates = []
+
+        # Add a tuple with coordinates to the array
+        for y in range(y_start, y_stop):
+            coordinates.append((x, y))
+
+        # Return coordinates
+        return coordinates
+
+# Check if location is free
+def is_location_free(ships_board, ship_name):
+    # Generate ships coordinates
+    coordinates = generate_ships_coordinates(ship_name)
+
+    # Check if cells are free
+    for coordinate in coordinates:
+        if ships_board[coordinate[0]][coordinate[1]] != ' ':
+            return False
+
+    # Check if around are free cells
+    for coordinate in coordinates:
+        x, y = coordinate[0], coordinate[1]
+        for i in range(-1, 2):
+            for j in range(-1, 2):
+                if (x+i) in range(10) and (y+j) in range(10):
+                    if ships_board[x+i][y+j] != ' ':
+                        return False
+
+    return True, coordinates
+
+# Place ships
+def place_ships_on_board(game_board):
     # Define ship board
     ships_board = game_board;
-    
-    # Generate single masted
-    for i in range(1, ships.get('single masted').get('quantity') + 1):
-        # Generate ship location
-        generate_ships_location(ships, 'single masted')
-        
+
+    # Place single masted
+    for i in range(1, ships.get('single masted', {}).get('quantity') + 1):
         # Check if location is free
-        if is_location_free(ships_board, x, y) == True:
-            pass
+        is_free, coordinates = is_location_free(ships_board, 'single masted')
+        if is_free == True:
+            # Place ships on board
+            for coordinate in coordinates:
+                x, y = coordinate
+                ships_board[x][y] = 's'
         else:
+            # TODO: Handle when there is no free location
             pass
 
-    # Generate two masted
-    # Generate three masted
-    # Generate four masted
-    # Return second board (with ships)
-    return(ships_board)
+    # Place two masted
+    for i in range(1, ships.get('two masted', {}).get('quantity') + 1):
+        # Check if location is free
+        is_free, coordinates = is_location_free(ships_board, 'two masted')
+        if is_free == True:
+            # Place ships on board
+            for coordinate in coordinates:
+                x, y = coordinate
+                ships_board[x][y] = 's'
+        else:
+            # TODO: Handle when there is no free location
+            pass
+
+    # Place three masted
+    for i in range(1, ships.get('three masted', {}).get('quantity') + 1):
+        # Check if location is free
+        is_free, coordinates = is_location_free(ships_board, 'three masted')
+        if is_free == True:
+            # Place ships on board
+            for coordinate in coordinates:
+                x, y = coordinate
+                ships_board[x][y] = 's'
+        else:
+            # TODO: Handle when there is no free location
+            pass
+
+    # Place four masted
+    for i in range(1, ships.get('four masted', {}).get('quantity') + 1):
+        # Check if location is free
+        is_free, coordinates = is_location_free(ships_board, 'four masted')
+        if is_free == True:
+            # Place ships on board
+            for coordinate in coordinates:
+                x, y = coordinate
+                ships_board[x][y] = 's'
+        else:
+            # TODO: Handle when there is no free location
+            pass
+
+    # Return board with ships
+    return ships_board
 
 def game():
     pass
