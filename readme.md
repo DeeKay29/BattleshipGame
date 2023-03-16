@@ -85,6 +85,7 @@ Distributed under the MIT License. See `LICENSE.md` for more information.
 ## Contributing
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project.
@@ -97,7 +98,10 @@ Don't forget to give the project a star! Thanks again!
 
 ## Contact
 
+Go ahead. Contact me. Use the links below to reach me. Although I am a beginner, I will try to answer any doubts.
+
 Dawid Kurowski - [Follow me on LinkedIn]([linkedin-url]) - dkurowski.kontakt@gmail.com
+
 Project link: [Battleship Game by @DeeKay29]([project-link])
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -182,9 +186,10 @@ Code development ideas:
 - [ ] Finish the project 🙄.
 - [ ] Code reconstruction - division of the code into classes.
 - [ ] File structure reconstruction.
-- [ ] Support for multiple languages.
-  - [ ] Polish
-  - [ ] German
+- [ ] Support for multiple languages:
+  - [ ] Polish,
+  - [ ] German.
+- [ ] Graphical interface.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
