@@ -177,7 +177,7 @@ def place_ships_on_board(game_board):
                 x, y = coordinate
                 ships_board[x][y] = 's'
         else:
-            # TODO: Handle when there is no free location
+            # TODO : Handle when there is no free location
             pass
 
     # Place two masted
@@ -190,7 +190,7 @@ def place_ships_on_board(game_board):
                 x, y = coordinate
                 ships_board[x][y] = 's'
         else:
-            # TODO: Handle when there is no free location
+            # TODO : Handle when there is no free location
             pass
 
     # Place three masted
@@ -203,7 +203,7 @@ def place_ships_on_board(game_board):
                 x, y = coordinate
                 ships_board[x][y] = 's'
         else:
-            # TODO: Handle when there is no free location
+            # TODO : Handle when there is no free location
             pass
 
     # Place four masted
@@ -216,11 +216,27 @@ def place_ships_on_board(game_board):
                 x, y = coordinate
                 ships_board[x][y] = 's'
         else:
-            # TODO: Handle when there is no free location
+            # TODO : Handle when there is no free location
             pass
 
     # Return board with ships
     return ships_board
 
+# TODO : Game logic
 def game():
+    # TODO : Ask user for coordinates
+        # TODO : Check if user input is valid
+        # TODO : Split user input into coordinates
+        # TODO : Change letter to a number
+        # TODO : Assign x and y coordinates
+    # TODO : Compere the x and y position with the ships board
+        # TODO : if [x][y] = 's' => positive, return game board with green 'o' symbol
+        # TODO : if [x][y] = ' ' => negative, return game board with red 'x' symbol
+        # TODO : decrease turn number
+    # TODO : Check if the positions of the 'o' symbols on the game board match the 's' symbols on the ship board
+        # TODO : if all 'o' == 's' => win
+        # TODO : else ==> continue
+    # TODO : Check if turn == 0
+        # TODO : if turn == 0 => game over
+        # TODO : else ==> continue
     pass

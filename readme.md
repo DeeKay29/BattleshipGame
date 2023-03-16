@@ -46,10 +46,7 @@ python3 -m pip install --upgrade termcolor
 
 Changes introduced in the last update:
 
-1. Bug fix for catching bugs.
-2. Generating ships coordinates.
-3. Checking if ship location is free.
-4. Placing ships on board.
+1. Designing layout of game logic.
 
 ## Improvement
 
