@@ -1,5 +1,5 @@
 {
-    "boardHeaders": {
+    "board headers": {
         "columns": [
             "A", "B", "C", "D", "E", "F", "G", "H", "I", "J"
         ],
@@ -25,7 +25,7 @@
             "size": 4
         }
     },
-    "gameBoardSize": 1,
+    "game board size": 10,
     "turns": {
         "easy": 80,
         "medium": 60,
