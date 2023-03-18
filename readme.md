@@ -16,7 +16,7 @@
   </a>
 
   <h3 align="center">DeeKay</h3>
-  <p>Freelance Graphic Designer</p>
+  <p>Student | Freelance Graphic Designer</p>
 
 </div>
 
@@ -31,6 +31,50 @@ The user can choose from three difficulty modes, and then start the game against
 Join the great console gameplay today!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+***
+
+## Project description
+
+This section describes any design assumptions that were made by the project author at the start of the work. Originally, the project was implemented for academic classes in Java (the results of the previous project are shown in <a href="#" target="_blank">this repository</a>). However, it was decided to rebuild the program using Python and extend it with additional functionalities. The project was created for educational purposes.
+
+### Design assumptions
+
+The problem that the author decided to deal with is the randomization of ship placement in a ship game using Python. The aim of the project was to create a program that would allow generating random ship layouts on the game board, which would be consistent with the rules of the Battleship game. In addition, the program is to allow the user to play the game in single-player mode.
+
+It was assumed that the input data to the program will be the size of the board, the number and types of ships, which will be static data, i.e. they will not be collected from the user. The user will be able to choose the difficulty level by selecting the option at the beginning of the game.
+
+The result of the project is to be a working program that, as a result of its operation, will generate ship layouts on the game board, which will be in accordance with the rules of the Battleship game. The output of the program will be a working Battleship game that can be used via the terminal.
+
+The program that fully meets the design assumptions will be released in version 1.1. Additional functionalities will be added in future versions of the program.
+
+### Solution
+
+#### Description
+
+xxx
+
+#### Algorithm
+
+xxx
+
+### Validity testing
+
+#### How to test correctness
+
+xxx
+
+#### Resilience to user errors
+
+xxx
+
+#### Test data and results
+
+xxx
+
+### Final conclusions
+
+xxx
 
 ***
 
