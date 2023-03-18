@@ -154,41 +154,28 @@ Project link: [Battleship Game by @DeeKay29]([project-link])
 
 ## Changelog
 
-Changes introduced in the last (**v.0.9**) update:
-
-- [x] Rebuilding readme file.
-
-### Previous changes
-
-**v.0.8**:
-
-- [x] Designing layout of game logic.
-
-**v.0.7**:
+Changes introduced in the last (**v.0.6**) update:
 
 - [x] Fixing bug for catching bugs.
 - [x] Generating ships coordinates.
 - [x] Checking if ship location is free.
 - [x] Placing ships on board.
 
-**v.0.6**:
+### Previous changes
+
+**v.0.5**:
 
 - [x] Rebuilding the json files.
 - [x] Displaying rules.
 
-**v.0.5**:
+**v.0.4**:
 
 - [x] Generating ships location.
 
-**v.0.4**:
-
-- [x] Displaying rules.
-- [x] Checking if user is ready to play.
-- [x] Choosing a difficulty level.
-
 **v.0.3**:
 
-- [x] Developing a readme file.
+- [x] Checking if user is ready to play.
+- [x] Choosing a difficulty level.
 
 **v.0.2**:
 
@@ -199,43 +186,6 @@ Changes introduced in the last (**v.0.9**) update:
 **v.0.1**:
 
 - [x] Creating an empty game board.
-
-### Next changes
-
-Here you will find ideas for the next updates.
-
-**v.0.10**:
-
-- [ ] Handling when there is no free location
-
-**v.0.11**:
-
-- [ ] Asking user for a coordinates.
-- [ ] Creating shooting function.
-- [ ] Checking if user win or lose the game.
-
-**v.1.1**:
-
-- [ ] Shortening the changelog of version v.0.'x' - to describe the most important changes introduced in these versions.
-- [ ] Bugs fixes.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-***
-
-## Improvement ideas
-
-Code development ideas:
-
-- [ ] Finish the project 🙄.
-- [ ] Code reconstruction - division of the code into classes.
-- [ ] File structure reconstruction.
-- [ ] Support for multiple languages:
-  - [ ] Polish,
-  - [ ] German.
-- [ ] Graphical interface.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Links -->
 [project-link]: https://github.com/DeeKay29/BattleshipGame
