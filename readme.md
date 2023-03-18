@@ -154,6 +154,6 @@ Changes introduced in the last (**v.0.6**) update:
 [issues-shield]: https://img.shields.io/github/issues/DeeKay29/BattleshipGame.svg?style=for-the-badge
 [issues-url]: https://github.com/DeeKay29/BattleshipGame/issues
 [license-shield]: https://img.shields.io/github/license/DeeKay29/BattleshipGame.svg?style=for-the-badge
-[license-url]: https://github.com/DeeKay29/BattleshipGame/blob/master/LICENSE.txt
+[license-url]: https://github.com/DeeKay29/BattleshipGame/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/dawid-kurowski/
