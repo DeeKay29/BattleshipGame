@@ -110,14 +110,20 @@ Project link: [Battleship Game by @DeeKay29]([project-link])
 
 ## Changelog
 
-Changes introduced in the last (**v.0.7**) update:
+Changes introduced in the last (**v.0.8**) update:
+
+- [x] Creating game logic
+- [ ] Converting for a coordinates
+- [ ] Checking if coordinates are valid
+
+### Previous changes
+
+**v.0.7**:
 
 - [x] Fixing console bugs
 - [x] Ignoring console warnings
 - [x] Displaying ships board
 - [x] Fixing placing ships on board
-
-### Previous changes
 
 **v.0.6**:
 
