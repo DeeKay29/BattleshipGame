@@ -178,7 +178,7 @@ def generate_ships_coordinates(ship_name, ships_board, ship_size):
 # Place ships
 def place_ships_on_board():
     # Define ship board
-    ships_board = create_game_board(game_board_size, col_headers, row_headers);
+    ships_board = create_game_board(game_board_size, col_headers, row_headers)
 
     # Define ships list
     ships_list = [
@@ -210,12 +210,18 @@ def place_ships_on_board():
                 sys.exit()
 
     # Return board with ships
-    print(ships_board)
-
-place_ships_on_board()
+    return ships_board
 
 # Game logic
 def game():
+    # Generate new ships board and player board
+    ships_board = place_ships_on_board()
+    player_board = create_game_board(game_board_size, col_headers, row_headers)
+
+    # Display player board
+    print(colored("Let's begin. Here os your board. When you take a shot, we'll mark its position on it.", 'blue'))
+    print(player_board)
+
     # TODO : Ask user for coordinates
         # TODO : Check if user input is valid
         # TODO : Split user input into coordinates
@@ -231,4 +237,5 @@ def game():
     # TODO : Check if turn == 0
         # TODO : if turn == 0 => game over
         # TODO : else ==> continue
-    pass
+
+game()
