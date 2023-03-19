@@ -167,57 +167,34 @@ def place_ships_on_board(game_board):
     # Define ship board
     ships_board = game_board;
 
-    # Place single masted
-    for i in range(1, ships.get('single masted', {}).get('quantity') + 1):
-        # Check if location is free
-        is_free, coordinates = is_location_free(ships_board, 'single masted')
-        if is_free == True:
-            # Place ships on board
-            for coordinate in coordinates:
-                x, y = coordinate
-                ships_board[x][y] = 's'
-        else:
-            # TODO : Handle when there is no free location
-            pass
+    # Define ships list
+    ships_list = [
+        {'name': 'single masted', 'quantity': ships.get('single masted', {}).get('quantity'), 'size': ships.get('single masted', {}).get('size')},
+        {'name': 'two masted', 'quantity': ships.get('two masted', {}).get('quantity'), 'size': ships.get('two masted', {}).get('size')},
+        {'name': 'three masted', 'quantity': ships.get('three masted', {}).get('quantity'), 'size': ships.get('three masted', {}).get('size')},
+        {'name': 'four masted', 'quantity': ships.get('four masted', {}).get('quantity'), 'size': ships.get('four masted', {}).get('size')},
+    ]
 
-    # Place two masted
-    for i in range(1, ships.get('two masted', {}).get('quantity') + 1):
-        # Check if location is free
-        is_free, coordinates = is_location_free(ships_board, 'two masted')
-        if is_free == True:
-            # Place ships on board
-            for coordinate in coordinates:
-                x, y = coordinate
-                ships_board[x][y] = 's'
-        else:
-            # TODO : Handle when there is no free location
-            pass
+    # PLace ships on board
+    for ship in ships_list:
+        for i in range(ship['quantity']):
+            location_found = False
+            attempts = 0
 
-    # Place three masted
-    for i in range(1, ships.get('three masted', {}).get('quantity') + 1):
-        # Check if location is free
-        is_free, coordinates = is_location_free(ships_board, 'three masted')
-        if is_free == True:
-            # Place ships on board
-            for coordinate in coordinates:
-                x, y = coordinate
-                ships_board[x][y] = 's'
-        else:
-            # TODO : Handle when there is no free location
-            pass
+            while not location_found and attempts < 40:
+                is_free, coordinates = is_location_free(ships_board, ship['size'])
 
-    # Place four masted
-    for i in range(1, ships.get('four masted', {}).get('quantity') + 1):
-        # Check if location is free
-        is_free, coordinates = is_location_free(ships_board, 'four masted')
-        if is_free == True:
-            # Place ships on board
-            for coordinate in coordinates:
-                x, y = coordinate
-                ships_board[x][y] = 's'
-        else:
-            # TODO : Handle when there is no free location
-            pass
+                if is_free:
+                    for coordinate in coordinates:
+                        x, y = coordinate
+                        ships_board[x][y] = 's'
+                    location_found = True
+                else:
+                    attempts += 1
+
+            if attempts == 40:
+                print(colored("Error: ", "red", attrs=['bold']) + colored("Unable to place all ships on board. Please try again.", "red"))
+                sys.exit()
 
     # Return board with ships
     return ships_board
