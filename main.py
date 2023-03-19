@@ -212,30 +212,63 @@ def place_ships_on_board():
     # Return board with ships
     return ships_board
 
+# TODO : Convert coordinates
+def convert_coordinates(coordinates):
+    pass
+
+# TODO : Check if coordinates are valid
+def is_valid_coordinates(x, y, player_board):
+    pass
+
 # Game logic
-def game():
+def game(game_turns):
     # Generate new ships board and player board
     ships_board = place_ships_on_board()
     player_board = create_game_board(game_board_size, col_headers, row_headers)
+    
+    # Define game starting parameters
+    turns = game_turns
+    hits = 0
 
     # Display player board
     print(colored("Let's begin. Here os your board. When you take a shot, we'll mark its position on it.", 'blue'))
     print(player_board)
 
-    # TODO : Ask user for coordinates
-        # TODO : Check if user input is valid
-        # TODO : Split user input into coordinates
-        # TODO : Change letter to a number
-        # TODO : Assign x and y coordinates
-    # TODO : Compere the x and y position with the ships board
-        # TODO : if [x][y] = 's' => positive, return game board with green 'o' symbol
-        # TODO : if [x][y] = ' ' => negative, return game board with red 'x' symbol
-        # TODO : decrease turn number
-    # TODO : Check if the positions of the 'o' symbols on the game board match the 's' symbols on the ship board
-        # TODO : if all 'o' == 's' => win
-        # TODO : else ==> continue
-    # TODO : Check if turn == 0
-        # TODO : if turn == 0 => game over
-        # TODO : else ==> continue
+    # Game loop
+    while hits < 20 and turns > 0:
+        # Ask user for coordinates
+        coordinates = input("Admiral, enter coordinates to shoot (e.g. D2): ")
+        x, y = convert_coordinates(coordinates)
 
-game()
+        # Check if coordinates are valid
+        if not is_valid_coordinates(x, y, player_board):
+            print(colored("Invalid coordinates. Please try again.", 'red'))
+            continue
+
+        # Check if position has already been hit
+        if player_board[x][y] != ' ':
+            print(colored("Your already shot there. Please try again.", 'red'))
+            continue
+
+        # Check if position is a hit or a miss
+        if ships_board[x][y] == 's':
+            print(colored("HIT! ", 'green', attrs=['bold']) + colored("Excellent work admiral. Opponents are in fear.", 'green'))
+            player_board[x][y] = 'o'
+            hits += 1
+        else:
+            print(colored("MISS! ", 'yellow', attrs=['bold']) + colored("Maybe next time you'll make it.", 'yellow'))
+            player_board[x][y] = 'x'
+
+        # Display player board with updated shot
+        print(player_board)
+
+        # Decrease number of turns
+        turns -= 1
+
+    # Game over
+    if hits == 20:
+        print(colored("Congratulations! You sunk all the ships and won the game!", 'green'))
+    else:
+        print(colored("Sorry, you ran out of turns. Game over.", 'red'))
+
+game(game_turns)
