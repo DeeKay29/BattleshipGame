@@ -15,7 +15,7 @@ except json.JSONDecodeError:
 
 # Display general rules
 for rule in game_rules['general rules']:
-    print(rule)
+    print(colored(rule, "blue"))
 
 # Check if user is ready
 while True:
@@ -48,7 +48,7 @@ except json.JSONDecodeError:
 
 # Display difficulty level rules
 for rule in game_rules['difficulty level rules']:
-    print(rule)
+    print(colored(rule, "blue"))
 
 # Get difficulty level from a user
 while True:
@@ -82,8 +82,6 @@ def create_game_board(game_board_size, col_headers, row_headers):
 
     # Return game_board
     return(game_board)
-
-create_game_board(game_board_size, col_headers, row_headers)
 
 # Generate ships location
 def generate_ships_location(ships, ship_name):
@@ -165,7 +163,7 @@ def is_location_free(ships_board, ship_name):
 # Place ships
 def place_ships_on_board(game_board):
     # Define ship board
-    ships_board = game_board;
+    ships_board = create_game_board(game_board_size, col_headers, row_headers);
 
     # Define ships list
     ships_list = [
@@ -197,9 +195,9 @@ def place_ships_on_board(game_board):
                 sys.exit()
 
     # Return board with ships
-    return ships_board
+    print(ships_board)
 
-# TODO : Game logic
+# Game logic
 def game():
     # TODO : Ask user for coordinates
         # TODO : Check if user input is valid
