@@ -116,6 +116,7 @@ Changes introduced in the last (**v.0.6**) update:
 - [x] Generating ships coordinates.
 - [x] Checking if ship location is free.
 - [x] Placing ships on board.
+- [x] Handling when there is no free location
 
 ### Previous changes
 
