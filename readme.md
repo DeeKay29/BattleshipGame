@@ -110,15 +110,22 @@ Project link: [Battleship Game by @DeeKay29]([project-link])
 
 ## Changelog
 
-Changes introduced in the last (**v.0.6**) update:
+Changes introduced in the last (**v.0.7**) update:
+
+- [x] Fixing console bugs
+- [x] Ignoring console warnings
+- [x] Displaying ships board
+- [x] Fixing placing ships on board
+
+### Previous changes
+
+**v.0.6**:
 
 - [x] Fixing bug for catching bugs.
 - [x] Generating ships coordinates.
 - [x] Checking if ship location is free.
 - [x] Placing ships on board.
 - [x] Handling when there is no free location
-
-### Previous changes
 
 **v.0.5**:
 
