@@ -1,6 +1,9 @@
-import json, sys, random
+import json, sys, random, warnings
 from termcolor import colored
 from beautifultable import BeautifulTable as table
+
+# Ignore warning
+warnings.filterwarnings("ignore", message="'BeautifulTable.__getitem__' has been deprecated")
 
 # Define game rules
 try:
