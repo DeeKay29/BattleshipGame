@@ -1,21 +1,24 @@
-import json, sys, random
+import json, sys, random, warnings
 from termcolor import colored
 from beautifultable import BeautifulTable as table
+
+# Ignore warning
+warnings.filterwarnings("ignore", message="'BeautifulTable.__getitem__' has been deprecated")
 
 # Define game rules
 try:
     with open('./data/gameRules.json', 'r') as f:
         game_rules = json.load(f)
 except FileNotFoundError:
-    print(colored('Error: ', 'red', attrs=['bold']) + colored('File not found. ', 'red') + 'Please make sure the `boardHeaders.json` file exists.')
+    print(colored('Error: ', 'red', attrs=['bold']) + colored('File not found. ', 'red') + 'Please make sure the `gameRules.json` file exists.')
     sys.exit()
 except json.JSONDecodeError:
-    print(colored('Error: ', 'red', attrs=['bold']) + colored('JSON decoding error. ', 'red') + 'Please check the data in the `boardHeaders.json` file.')
+    print(colored('Error: ', 'red', attrs=['bold']) + colored('JSON decoding error. ', 'red') + 'Please check the data in the `gameRules.json` file.')
     sys.exit()
 
 # Display general rules
 for rule in game_rules['general rules']:
-    print(rule)
+    print(colored(rule, "blue"))
 
 # Check if user is ready
 while True:
@@ -48,7 +51,7 @@ except json.JSONDecodeError:
 
 # Display difficulty level rules
 for rule in game_rules['difficulty level rules']:
-    print(rule)
+    print(colored(rule, "blue"))
 
 # Get difficulty level from a user
 while True:
@@ -83,8 +86,6 @@ def create_game_board(game_board_size, col_headers, row_headers):
     # Return game_board
     return(game_board)
 
-create_game_board(game_board_size, col_headers, row_headers)
-
 # Generate ships location
 def generate_ships_location(ships, ship_name):
     while True:
@@ -102,87 +103,44 @@ def generate_ships_location(ships, ship_name):
         # Return ship location
         return x, y, orientation
 
-# Generate ships coordinates
-def generate_ships_coordinates(ship_name):
+# Generate ships coordinates and check if location is free
+def generate_ships_coordinates(ship_name, ships_board, ship_size):
     # Generate ship location
     x, y, orientation = generate_ships_location(ships, ship_name)
 
-    # Generate all ship coordinates
+    # Generate ship coordinates
     if orientation == 'horizontal':
-        # Set the initial value for x
-        x_start = x
-
-        # Set the final value for x
-        x_stop = x_start + ships.get(ship_name, {}).get('size')
-
-        # Create an array of coordinates
-        coordinates = []
-
-        # Add a tuple with coordinates to the array
-        for x in range(x_start, x_stop):
-            coordinates.append((x, y))
-
-        # Return coordinates
-        return coordinates
+        for i in range(x, x + ship_size):
+            if ships_board[y][i] != ' ':
+                return False, None
+        return True, [(i, y) for i in range(x, x + ship_size)]
     else:
-        # Set the initial value for y
-        y_start = y
-
-        # Set the final value for y
-        y_stop = y_start + ships.get(ship_name, {}).get('size')
-
-        # Create an array of coordinates
-        coordinates = []
-
-        # Add a tuple with coordinates to the array
-        for y in range(y_start, y_stop):
-            coordinates.append((x, y))
-
-        # Return coordinates
-        return coordinates
-
-# Check if location is free
-def is_location_free(ships_board, ship_name):
-    # Generate ships coordinates
-    coordinates = generate_ships_coordinates(ship_name)
-
-    # Check if cells are free
-    for coordinate in coordinates:
-        if ships_board[coordinate[0]][coordinate[1]] != ' ':
-            return False
-
-    # Check if around are free cells
-    for coordinate in coordinates:
-        x, y = coordinate[0], coordinate[1]
-        for i in range(-1, 2):
-            for j in range(-1, 2):
-                if (x+i) in range(10) and (y+j) in range(10):
-                    if ships_board[x+i][y+j] != ' ':
-                        return False
-
-    return True, coordinates
+        for i in range(y, y + ship_size):
+            if ships_board[i][x] != ' ':
+                return False, None
+        return True, [(x, i) for i in range(y, y + ship_size)]
 
 # Place ships
-def place_ships_on_board(game_board):
+def place_ships_on_board():
     # Define ship board
-    ships_board = game_board;
+    ships_board = create_game_board(game_board_size, col_headers, row_headers);
 
     # Define ships list
     ships_list = [
-        {'name': 'single masted', 'quantity': ships.get('single masted', {}).get('quantity'), 'size': ships.get('single masted', {}).get('size')},
-        {'name': 'two masted', 'quantity': ships.get('two masted', {}).get('quantity'), 'size': ships.get('two masted', {}).get('size')},
-        {'name': 'three masted', 'quantity': ships.get('three masted', {}).get('quantity'), 'size': ships.get('three masted', {}).get('size')},
-        {'name': 'four masted', 'quantity': ships.get('four masted', {}).get('quantity'), 'size': ships.get('four masted', {}).get('size')},
+        {'name': 'single masted'},
+        {'name': 'two masted'},
+        {'name': 'three masted'},
+        {'name': 'four masted'},
     ]
 
     # PLace ships on board
     for ship in ships_list:
-        for i in range(ship['quantity']):
+        for i in range(ships.get(ship['name'], {}).get('quantity')):
             location_found = False
             attempts = 0
 
             while not location_found and attempts < 40:
-                is_free, coordinates = is_location_free(ships_board, ship['size'])
+                is_free, coordinates = generate_ships_coordinates(ship['name'], ships_board, ships.get(ship['name'], {}).get('size'))
 
                 if is_free:
                     for coordinate in coordinates:
@@ -197,9 +155,11 @@ def place_ships_on_board(game_board):
                 sys.exit()
 
     # Return board with ships
-    return ships_board
+    print(ships_board)
 
-# TODO : Game logic
+place_ships_on_board()
+
+# Game logic
 def game():
     # TODO : Ask user for coordinates
         # TODO : Check if user input is valid
