@@ -56,23 +56,6 @@ def display_rules():
     for rule in game_rules['difficulty level rules']:
         print(colored(rule, "blue"))
 
-    # Get difficulty level from a user
-    while True:
-        difficulty_level = input('Choose difficulty level (E / M / H):')
-        if difficulty_level in ['E', 'M', 'H']:
-            if difficulty_level == 'E':
-                turns = game_turns.get('easy')
-                break
-            elif difficulty_level == 'M':
-                turns = game_turns.get('medium')
-                break
-            elif difficulty_level == 'H':
-                turns = game_turns.get('hard')
-                break
-            break
-        else:
-            print('Invalid input. Insert one character (E or M or H).')
-
 # Create empty game board
 def create_game_board(game_board_size, col_headers, row_headers):
     # Create table
@@ -223,7 +206,7 @@ def convert_coordinates(coordinates):
         y = coordinates[1:]
 
         # Check if x and y format is valid
-        for col_header, row_header in col_headers, row_headers:
+        for col_header, row_header in zip(col_headers, row_headers):
             if x == col_header and y == row_header:
                 x = chr(ord(x) - ord('A') + ord('0'))
                 y = int(y[1]) - 1
@@ -238,13 +221,29 @@ def game(game_turns):
     # Generate new ships board and player board
     ships_board = place_ships_on_board()
     player_board = create_game_board(game_board_size, col_headers, row_headers)
-    
-    # Define game starting parameters
-    turns = game_turns
-    hits = 0
-    
+
     # Display rules
     display_rules()
+
+    # Get difficulty level from a user
+    while True:
+        difficulty_level = input('Choose difficulty level (E / M / H):')
+        if difficulty_level in ['E', 'M', 'H']:
+            if difficulty_level == 'E':
+                turns = game_turns.get('easy')
+                break
+            elif difficulty_level == 'M':
+                turns = game_turns.get('medium')
+                break
+            elif difficulty_level == 'H':
+                turns = game_turns.get('hard')
+                break
+            break
+        else:
+            print('Invalid input. Insert one character (E or M or H).')
+
+    # Define game starting parameters
+    hits = 0
 
     # Display player board
     print(colored("Let's begin. Here os your board. When you take a shot, we'll mark its position on it.", 'blue'))
