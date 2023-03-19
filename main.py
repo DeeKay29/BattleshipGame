@@ -4,6 +4,7 @@ from beautifultable import BeautifulTable as table
 
 # Ignore warning
 warnings.filterwarnings("ignore", message="'BeautifulTable.__getitem__' has been deprecated")
+warnings.filterwarnings("ignore", message="'BeautifulTable.__len__' has been deprecated")
 
 # Define game rules
 try:
@@ -111,12 +112,66 @@ def generate_ships_coordinates(ship_name, ships_board, ship_size):
     # Generate ship coordinates
     if orientation == 'horizontal':
         for i in range(x, x + ship_size):
-            if ships_board[y][i] != ' ':
+            if (
+                # Checking cell
+                ships_board[i][y] != ' '
+
+                # Checking left side
+                or (x > 0 and ships_board[i-1][y] != ' ')
+
+                # Checking left top corner
+                or (x > 0 and y > 0 and ships_board[i-1][y-1] != ' ')
+
+                # Checking top side
+                or (y > 0 and ships_board[i][y-1] != ' ')
+
+                # Checking top right corner
+                or (y > 0 and x + ship_size - 1 < len(ships_board) and ships_board[i+1][y-1] != ' ')
+
+                # Checking right side
+                or (x + ship_size - 1 < len(ships_board) and ships_board[i+1][y] != ' ')
+
+                # Checking bottom right corner
+                or (x + ship_size - 1 < len(ships_board) and y < len(ships_board) - 1 and ships_board[i+1][y+1] != ' ')
+
+                # Checking bottom side
+                or (y < len(ships_board) - 1 and ships_board[i][x+1] != ' ')
+
+                # Checking bottom left corner
+                or (x > 0 and y < len(ships_board) - 1 and ships_board[i-1][y-1] != ' ')
+            ):
                 return False, None
         return True, [(i, y) for i in range(x, x + ship_size)]
     else:
         for i in range(y, y + ship_size):
-            if ships_board[i][x] != ' ':
+            if (
+                # Checking cell
+                ships_board[x][i] != ' '
+
+                # Checking left side
+                or (x > 0 and ships_board[x][i] != ' ')
+
+                # Checking top left corner
+                or (x > 0 and y > 0 and y > 0 and ships_board[x-1][i-1] != ' ')
+
+                # Checking top side
+                or (y > 0 and ships_board[x][i-1] != ' ')
+
+                # Checking top right corner
+                or (y > 0 and x < len(ships_board) - 1 and ships_board[x+1][i-1] != ' ')
+
+                # Checking right side
+                or (x < len(ships_board) - 1 and ships_board[x+1][i] != ' ')
+
+                # Checking bottom right corner
+                or (x < len(ships_board) - 1 and y + ship_size -1 < len(ships_board) - 1 and ships_board[x+1][i+1] != ' ')
+
+                # Checking bottom side
+                or (y + ship_size - 1 < len(ships_board) - 1 and ships_board[x][i+1] != ' ')
+
+                # Checking bottom left corner
+                or (x > 0 and y < len(ships_board) - 1 and ships_board[x-1][i+1] != ' ')
+            ):
                 return False, None
         return True, [(x, i) for i in range(y, y + ship_size)]
 
@@ -139,7 +194,7 @@ def place_ships_on_board():
             location_found = False
             attempts = 0
 
-            while not location_found and attempts < 40:
+            while not location_found and attempts < 100:
                 is_free, coordinates = generate_ships_coordinates(ship['name'], ships_board, ships.get(ship['name'], {}).get('size'))
 
                 if is_free:
@@ -150,7 +205,7 @@ def place_ships_on_board():
                 else:
                     attempts += 1
 
-            if attempts == 40:
+            if attempts == 100:
                 print(colored("Error: ", "red", attrs=['bold']) + colored("Unable to place all ships on board. Please try again.", "red"))
                 sys.exit()
 
