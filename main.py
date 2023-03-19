@@ -214,13 +214,24 @@ def place_ships_on_board():
     # Return board with ships
     return ships_board
 
-# TODO : Convert coordinates
+# Convert coordinates
 def convert_coordinates(coordinates):
-    pass
+    # Check string length
+    if (len(coordinates) == 2 or len(coordinates) == 3):
+        # Split string 
+        x = coordinates[0]
+        y = coordinates[1:]
 
-# TODO : Check if coordinates are valid
-def is_valid_coordinates(x, y, player_board):
-    pass
+        # Check if x and y format is valid
+        for col_header, row_header in col_headers, row_headers:
+            if x == col_header and y == row_header:
+                x = chr(ord(x) - ord('A') + ord('0'))
+                y = int(y[1]) - 1
+                return True, x, y
+            else:
+                return False, None, None
+    else:
+        return False, None, None
 
 # Game logic
 def game(game_turns):
@@ -243,10 +254,10 @@ def game(game_turns):
     while hits < 20 and turns > 0:
         # Ask user for coordinates
         coordinates = input("Admiral, enter coordinates to shoot (e.g. D2): ")
-        x, y = convert_coordinates(coordinates)
+        is_valid_coordinates, x, y = convert_coordinates(coordinates)
 
         # Check if coordinates are valid
-        if not is_valid_coordinates(x, y, player_board):
+        if not is_valid_coordinates:
             print(colored("Invalid coordinates. Please try again.", 'red'))
             continue
 
