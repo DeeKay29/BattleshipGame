@@ -260,18 +260,18 @@ def game(game_turns):
             continue
 
         # Check if position has already been hit
-        if player_board[x][y] != ' ':
+        if player_board[y][x] != ' ':
             print(colored("Your already shot there. Please try again.", 'red'))
             continue
 
         # Check if position is a hit or a miss
-        if ships_board[x][y] == 's':
+        if ships_board[y][x] == 's':
             print(colored("HIT! ", 'green', attrs=['bold']) + colored("Excellent work admiral. Opponents are in fear.", 'green'))
-            player_board[x][y] = 'o'
+            player_board[y][x] = 'o'
             hits += 1
         else:
             print(colored("MISS! ", 'yellow', attrs=['bold']) + colored("Maybe next time you'll make it.", 'yellow'))
-            player_board[x][y] = 'x'
+            player_board[y][x] = 'x'
 
         # Display player board with updated shot
         print(player_board)
