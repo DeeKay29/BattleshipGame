@@ -283,6 +283,7 @@ def game(game_turns):
     if hits == 20:
         print(colored("Congratulations! You sunk all the ships and won the game!", 'green'))
     else:
-        print(colored("Sorry, you ran out of turns. Game over.", 'red'))
+        print(colored("Sorry, you ran out of turns. Game over.", 'red') + 'All enemy ships:')
+        print(ships_board)
 
 game(game_turns)
