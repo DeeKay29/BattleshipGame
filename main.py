@@ -206,13 +206,12 @@ def convert_coordinates(coordinates):
         y = coordinates[1:]
 
         # Check if x and y format is valid
-        for col_header, row_header in zip(col_headers, row_headers):
-            if x == col_header and y == row_header:
-                x = chr(ord(x) - ord('A') + ord('0'))
-                y = int(y[1]) - 1
-                return True, x, y
-            else:
-                return False, None, None
+        if x in col_headers and y in row_headers:
+            x = ord(x) - ord('A')
+            y = int(y) - 1
+            return True, x, y
+        else:
+            return False, None, None
     else:
         return False, None, None
 
@@ -256,7 +255,7 @@ def game(game_turns):
         is_valid_coordinates, x, y = convert_coordinates(coordinates)
 
         # Check if coordinates are valid
-        if not is_valid_coordinates:
+        if is_valid_coordinates == False:
             print(colored("Invalid coordinates. Please try again.", 'red'))
             continue
 
