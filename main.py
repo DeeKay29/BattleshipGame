@@ -17,23 +17,6 @@ except json.JSONDecodeError:
     print(colored('Error: ', 'red', attrs=['bold']) + colored('JSON decoding error. ', 'red') + 'Please check the data in the `gameRules.json` file.')
     sys.exit()
 
-# Display general rules
-for rule in game_rules['general rules']:
-    print(colored(rule, "blue"))
-
-# Check if user is ready
-while True:
-    is_user_ready = input('Are you ready admiral? (Y / N):')
-    if is_user_ready in ['Y', 'N']:
-        if is_user_ready == 'Y':
-            break
-        elif is_user_ready == 'N':
-            print('We are sorry to hear that. See you soon admiral!')
-            sys.exit()
-        break
-    else:
-        print('Invalid input. Insert one character (E or M or H).')
-
 # Define game parameters
 try:
     with open('./data/gameParameters.json', 'r') as f:
@@ -50,26 +33,28 @@ except json.JSONDecodeError:
     print(colored('Error: ', 'red', attrs=['bold']) + colored('JSON decoding error. ', 'red') + 'Please check the data in the `boardHeaders.json` file.')
     sys.exit()
 
-# Display difficulty level rules
-for rule in game_rules['difficulty level rules']:
-    print(colored(rule, "blue"))
+# Display rules
+def display_rules():
+    # Display general rules
+    for rule in game_rules['general rules']:
+        print(colored(rule, "blue"))
 
-# Get difficulty level from a user
-while True:
-    difficulty_level = input('Choose difficulty level (E / M / H):')
-    if difficulty_level in ['E', 'M', 'H']:
-        if difficulty_level == 'E':
-            turns = game_turns.get('easy')
+    # Check if user is ready
+    while True:
+        is_user_ready = input('Are you ready admiral? (Y / N):')
+        if is_user_ready in ['Y', 'N']:
+            if is_user_ready == 'Y':
+                break
+            elif is_user_ready == 'N':
+                print('We are sorry to hear that. See you soon admiral!')
+                sys.exit()
             break
-        elif difficulty_level == 'M':
-            turns = game_turns.get('medium')
-            break
-        elif difficulty_level == 'H':
-            turns = game_turns.get('hard')
-            break
-        break
-    else:
-        print('Invalid input. Insert one character (E or M or H).')
+        else:
+            print('Invalid input. Insert one character (Y / N).')
+
+    # Display difficulty level rules
+    for rule in game_rules['difficulty level rules']:
+        print(colored(rule, "blue"))
 
 # Create empty game board
 def create_game_board(game_board_size, col_headers, row_headers):
@@ -212,22 +197,51 @@ def place_ships_on_board():
     # Return board with ships
     return ships_board
 
-# TODO : Convert coordinates
+# Convert coordinates
 def convert_coordinates(coordinates):
-    pass
+    # Check string length
+    if (len(coordinates) == 2 or len(coordinates) == 3):
+        # Split string 
+        x = coordinates[0]
+        y = coordinates[1:]
 
-# TODO : Check if coordinates are valid
-def is_valid_coordinates(x, y, player_board):
-    pass
+        # Check if x and y format is valid
+        if x in col_headers and y in row_headers:
+            x = ord(x) - ord('A')
+            y = int(y) - 1
+            return True, x, y
+        else:
+            return False, None, None
+    else:
+        return False, None, None
 
 # Game logic
 def game(game_turns):
     # Generate new ships board and player board
     ships_board = place_ships_on_board()
     player_board = create_game_board(game_board_size, col_headers, row_headers)
-    
+
+    # Display rules
+    display_rules()
+
+    # Get difficulty level from a user
+    while True:
+        difficulty_level = input('Choose difficulty level (E / M / H):')
+        if difficulty_level in ['E', 'M', 'H']:
+            if difficulty_level == 'E':
+                turns = game_turns.get('easy')
+                break
+            elif difficulty_level == 'M':
+                turns = game_turns.get('medium')
+                break
+            elif difficulty_level == 'H':
+                turns = game_turns.get('hard')
+                break
+            break
+        else:
+            print('Invalid input. Insert one character (E or M or H).')
+
     # Define game starting parameters
-    turns = game_turns
     hits = 0
 
     # Display player board
@@ -238,26 +252,26 @@ def game(game_turns):
     while hits < 20 and turns > 0:
         # Ask user for coordinates
         coordinates = input("Admiral, enter coordinates to shoot (e.g. D2): ")
-        x, y = convert_coordinates(coordinates)
+        is_valid_coordinates, x, y = convert_coordinates(coordinates)
 
         # Check if coordinates are valid
-        if not is_valid_coordinates(x, y, player_board):
+        if is_valid_coordinates == False:
             print(colored("Invalid coordinates. Please try again.", 'red'))
             continue
 
         # Check if position has already been hit
-        if player_board[x][y] != ' ':
+        if player_board[y][x] != ' ':
             print(colored("Your already shot there. Please try again.", 'red'))
             continue
 
         # Check if position is a hit or a miss
-        if ships_board[x][y] == 's':
+        if ships_board[y][x] == 's':
             print(colored("HIT! ", 'green', attrs=['bold']) + colored("Excellent work admiral. Opponents are in fear.", 'green'))
-            player_board[x][y] = 'o'
+            player_board[y][x] = 'o'
             hits += 1
         else:
             print(colored("MISS! ", 'yellow', attrs=['bold']) + colored("Maybe next time you'll make it.", 'yellow'))
-            player_board[x][y] = 'x'
+            player_board[y][x] = 'x'
 
         # Display player board with updated shot
         print(player_board)

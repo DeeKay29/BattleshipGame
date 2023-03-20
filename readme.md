@@ -110,52 +110,21 @@ Project link: [Battleship Game by @DeeKay29]([project-link])
 
 ## Changelog
 
-Changes introduced in the last (**v.0.8**) update:
+Changes introduced in the last (**v.1.0**) update:
 
-- [x] Creating game logic
-- [ ] Converting for a coordinates
-- [ ] Checking if coordinates are valid
+- [x] Fixing bugs and making sure the program is working properly
 
 ### Previous changes
 
-**v.0.7**:
+The most important changes introduced from version **v.0.1** to version **v.0.8**:
 
-- [x] Fixing console bugs
-- [x] Ignoring console warnings
-- [x] Displaying ships board
-- [x] Fixing placing ships on board
-
-**v.0.6**:
-
-- [x] Fixing bug for catching bugs.
-- [x] Generating ships coordinates.
-- [x] Checking if ship location is free.
-- [x] Placing ships on board.
-- [x] Handling when there is no free location
-
-**v.0.5**:
-
-- [x] Rebuilding the json files.
-- [x] Displaying rules.
-
-**v.0.4**:
-
-- [x] Generating ships location.
-
-**v.0.3**:
-
-- [x] Checking if user is ready to play.
-- [x] Choosing a difficulty level.
-
-**v.0.2**:
-
-- [x] Changing the naming convention.
-- [x] Resolving issues with json.
-- [x] Rebuilding json file.
-
-**v.0.1**:
-
-- [x] Creating an empty game board.
+- [x] Creating empty game board
+- [x] Defining game parameters
+- [x] Generating ships location
+- [x] Generating ships coordinates
+- [x] Placing ships on board
+- [x] Converting user coordinates
+- [x] Game logic
 
 <!-- Links -->
 [project-link]: https://github.com/DeeKay29/BattleshipGame
