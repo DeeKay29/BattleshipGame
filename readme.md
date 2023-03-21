@@ -110,11 +110,15 @@ Project link: [Battleship Game by @DeeKay29]([project-link])
 
 ## Changelog
 
-Changes introduced in the last (**v.1.0**) update:
+Changes introduced in the last (**v.1.1**) update:
 
-- [x] Fixing bugs and making sure the program is working properly
+- [x] File structure restructuring
 
 ### Previous changes
+
+Changes introduced in the **v.1.0** update:
+
+- [x] Fixing bugs and making sure the program is working properly
 
 The most important changes introduced from version **v.0.1** to version **v.0.8**:
 
