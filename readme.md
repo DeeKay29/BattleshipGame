@@ -8,11 +8,11 @@
 
 <div align="center">
   <a href="https://github.com/DeeKay29/BattleshipGame">
-    <img src="./images/banner.png" alt="banner">
+    <img src="./data/images/banner.png" alt="banner">
   </a>
   <br><br><br>
   <a href="https://github.com/DeeKay29/BattleshipGame">
-    <img src="./images/logo.png" alt="Logo" width="80" height="80">
+    <img src="./data/images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">DeeKay</h3>
@@ -110,11 +110,15 @@ Project link: [Battleship Game by @DeeKay29]([project-link])
 
 ## Changelog
 
-Changes introduced in the last (**v.1.0**) update:
+Changes introduced in the last (**v.1.1**) update:
 
-- [x] Fixing bugs and making sure the program is working properly
+- [x] File structure restructuring
 
 ### Previous changes
+
+Changes introduced in the **v.1.0** update:
+
+- [x] Fixing bugs and making sure the program is working properly
 
 The most important changes introduced from version **v.0.1** to version **v.0.8**:
 
