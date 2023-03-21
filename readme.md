@@ -28,7 +28,7 @@ Battleship (also known as Sea Battle) is a strategy type guessing game for two p
 
 The user can choose from three difficulty modes, and then start the game against the computer. If he manages to shoot down all the ships before the end of the game, he wins, and if not, his fleet is completely sunk.
 
-Join the great console gameplay today!
+Join the great gameplay today!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
