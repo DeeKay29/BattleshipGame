@@ -54,31 +54,31 @@ class GameBoard:
             for i in range(x, x + ship_size):
                 if (
                     # Checking cell
-                    ships_board[i][y] != ' '
+                    ships_board[y][i] != ' '
 
                     # Checking left side
-                    or (x > 0 and ships_board[i-1][y] != ' ')
+                    or (x > 0 and ships_board[y][i-1] != ' ')
 
                     # Checking left top corner
-                    or (x > 0 and y > 0 and ships_board[i-1][y-1] != ' ')
+                    or (x > 0 and y > 0 and ships_board[y-1][i-1] != ' ')
 
                     # Checking top side
-                    or (y > 0 and ships_board[i][y-1] != ' ')
+                    or (y > 0 and ships_board[y-1][i] != ' ')
 
                     # Checking top right corner
-                    or (y > 0 and x + ship_size - 1 < len(ships_board) and ships_board[i+1][y-1] != ' ')
+                    or (y > 0 and x + ship_size - 1 < len(ships_board) and ships_board[y-1][i+1] != ' ')
 
                     # Checking right side
-                    or (x + ship_size - 1 < len(ships_board) and ships_board[i+1][y] != ' ')
+                    or (x + ship_size - 1 < len(ships_board) and ships_board[y][i+1] != ' ')
 
                     # Checking bottom right corner
-                    or (x + ship_size - 1 < len(ships_board) and y < len(ships_board) - 1 and ships_board[i+1][y+1] != ' ')
+                    or (x + ship_size - 1 < len(ships_board) and y < len(ships_board) - 1 and ships_board[y+1][i+1] != ' ')
 
                     # Checking bottom side
-                    or (y < len(ships_board) - 1 and ships_board[i][x+1] != ' ')
+                    or (y < len(ships_board) - 1 and ships_board[y+1][i] != ' ')
 
                     # Checking bottom left corner
-                    or (x > 0 and y < len(ships_board) - 1 and ships_board[i-1][y-1] != ' ')
+                    or (x > 0 and y < len(ships_board) - 1 and ships_board[y-1][i-1] != ' ')
                 ):
                     return False, None
             return True, [(i, y) for i in range(x, x + ship_size)]
@@ -86,31 +86,31 @@ class GameBoard:
             for i in range(y, y + ship_size):
                 if (
                     # Checking cell
-                    ships_board[x][i] != ' '
+                    ships_board[i][x] != ' '
 
                     # Checking left side
-                    or (x > 0 and ships_board[x][i] != ' ')
+                    or (x > 0 and ships_board[i][x] != ' ')
 
                     # Checking top left corner
-                    or (x > 0 and y > 0 and y > 0 and ships_board[x-1][i-1] != ' ')
+                    or (x > 0 and y > 0 and y > 0 and ships_board[i-1][x-1] != ' ')
 
                     # Checking top side
-                    or (y > 0 and ships_board[x][i-1] != ' ')
+                    or (y > 0 and ships_board[i-1][x] != ' ')
 
                     # Checking top right corner
-                    or (y > 0 and x < len(ships_board) - 1 and ships_board[x+1][i-1] != ' ')
+                    or (y > 0 and x < len(ships_board) - 1 and ships_board[i-1][x+1] != ' ')
 
                     # Checking right side
-                    or (x < len(ships_board) - 1 and ships_board[x+1][i] != ' ')
+                    or (x < len(ships_board) - 1 and ships_board[i][x+1] != ' ')
 
                     # Checking bottom right corner
-                    or (x < len(ships_board) - 1 and y + ship_size -1 < len(ships_board) - 1 and ships_board[x+1][i+1] != ' ')
+                    or (x < len(ships_board) - 1 and y + ship_size -1 < len(ships_board) - 1 and ships_board[i+1][x+1] != ' ')
 
                     # Checking bottom side
-                    or (y + ship_size - 1 < len(ships_board) - 1 and ships_board[x][i+1] != ' ')
+                    or (y + ship_size - 1 < len(ships_board) - 1 and ships_board[i+1][x] != ' ')
 
                     # Checking bottom left corner
-                    or (x > 0 and y < len(ships_board) - 1 and ships_board[x-1][i+1] != ' ')
+                    or (x > 0 and y < len(ships_board) - 1 and ships_board[i+1][x-1] != ' ')
                 ):
                     return False, None
             return True, [(x, i) for i in range(y, y + ship_size)]
@@ -140,7 +140,7 @@ class GameBoard:
                     if is_free:
                         for coordinate in coordinates:
                             x, y = coordinate
-                            ships_board[x][y] = 's'
+                            ships_board[y][x] = 's'
                         location_found = True
                     else:
                         attempts += 1

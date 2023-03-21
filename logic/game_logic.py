@@ -75,7 +75,7 @@ class GameLogic:
                 print('Invalid input. Insert one character (E or M or H).')
 
         # Display player board
-        print(colored("Let's begin. Here os your board. When you take a shot, we'll mark its position on it.", 'blue'))
+        print(colored("Let's begin. Here is your board. When you take a shot, we'll mark its position on it.", 'blue'))
         print(player_board)
 
         # Game loop
