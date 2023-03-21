@@ -113,6 +113,7 @@ Project link: [Battleship Game by @DeeKay29]([project-link])
 Changes introduced in the last (**v.1.1**) update:
 
 - [x] File structure restructuring
+- [x] Fixing placing ships on board
 
 ### Previous changes
 
