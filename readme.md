@@ -8,11 +8,11 @@
 
 <div align="center">
   <a href="https://github.com/DeeKay29/BattleshipGame">
-    <img src="./images/banner.png" alt="banner">
+    <img src="./data/images/banner.png" alt="banner">
   </a>
   <br><br><br>
   <a href="https://github.com/DeeKay29/BattleshipGame">
-    <img src="./images/logo.png" alt="Logo" width="80" height="80">
+    <img src="./data/images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">DeeKay</h3>
