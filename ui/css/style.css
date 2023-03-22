@@ -16,6 +16,7 @@
     --low-dark: #282F44;
     --white: #FFFAFF;
     --color: #E8002D;
+    --acc-color: #FF4F29;
     --gray: #9DB2CE;
 }
 
@@ -103,11 +104,15 @@ nav a {
     display: table;
     width: 300px;
     padding: 1rem;
+    transition: 0.3s ease-in-out;
 }
 
 nav a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    color: var(--white);
+    background: var(--acc-color);
+}
+
+nav li:first-of-type a:hover {
+    background: var(--color);
 }
 
 nav a i {
@@ -141,17 +146,18 @@ header {
     padding-top: 5rem;
 }
 
-header span {
-    background: var(--color);
-    padding: 0 2rem;
-}
-
-header span a {
+header a {
     color: var(--white);
+    background: var(--color);
+    transition: 0.3s ease-in-out;
 }
 
-header span a:hover {
-    color: var(--dark);
+header a:hover {
+    background: var(--acc-color);
+}
+
+header a span {
+    padding: 0 2rem;
 }
 
 header p {
@@ -214,10 +220,11 @@ main .information ul li b {
 main .information p a {
     text-decoration: none;
     color: var(--color);
+    transition: 0.3s ease-in-out;
 }
 
 main .information p a:hover {
-    opacity: 0.95;
+    color: var(--acc-color);
 }
 
 main .ship {
@@ -241,8 +248,12 @@ main .ship button {
     border-radius: 50px;
     box-shadow: 0 0 2rem 0 rgba(232, 0, 45, 1);
     animation: pulse 2s infinite;
-    transition: all .3s;
+    transition: all 0.3s;
     width: 50%;
+}
+
+main .ship button:hover {
+    background: var(--acc-color);
 }
 
 @keyframes pulse {
@@ -280,8 +291,9 @@ footer p {
 footer p a {
     text-decoration: none;
     color: var(--color);
+    transition: 0.3s ease-in-out;
 }
 
 footer p a:hover {
-    opacity: 0.95;
+    color: var(--acc-color);
 }
