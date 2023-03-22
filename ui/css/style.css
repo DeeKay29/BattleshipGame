@@ -15,8 +15,24 @@
     --dark: #191D32;
     --low-dark: #282F44;
     --white: #FFFAFF;
-    --color: #3E92CC;
+    --color: #E8002D;
     --gray: #9DB2CE;
+}
+
+::-webkit-scrollbar {
+    width: 0.75rem;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--low-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gray);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color);
 }
 
 .container {
@@ -86,7 +102,7 @@ nav a {
 }
 
 nav a:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.2);
     color: var(--white);
 }
 
@@ -112,9 +128,13 @@ header, main, footer {
 header {
     text-align: center;
     color: var(--white);
-    padding-top: 10rem;
-    padding-bottom: 10rem;
     background: var(--dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 20vh;
+    padding-top: 5rem;
 }
 
 header span {
@@ -127,7 +147,7 @@ header span a {
 }
 
 header span a:hover {
-    opacity: 0.8;
+    color: var(--dark);
 }
 
 header p {
@@ -141,7 +161,71 @@ header p:first-of-type {
 
 main {
     background-color: var(--dark);
-    min-height: 20vh;
+    padding-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+main .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+main .information {
+    width: 50%;
+    padding: 2rem 1rem;
+}
+
+main .information h2 {
+    color: var(--white);
+    padding-top: 4rem;
+}
+
+main .information h2:first-of-type {
+    padding-top: 0;
+}
+
+main .information p {
+    padding-top: 1.5rem;
+    color: var(--gray);
+}
+
+main .information ul {
+    padding-top: 1rem;
+}
+
+main .information ul li {
+    margin-left: 2rem;
+    color: var(--gray);
+}
+
+main .information ul li b {
+    color: var(--color);
+}
+
+main .information p a {
+    text-decoration: none;
+    color: var(--color);
+}
+
+main .information p a:hover {
+    opacity: 0.95;
+}
+
+main .ship {
+    text-align: center;
+    width: 50%;
+    padding: 2rem 1rem;
+}
+
+@media only screen and (max-width: 1200px) {
+    main .ship, main .information {
+        width: 100%;
+    }
 }
 
 footer {
@@ -161,5 +245,5 @@ footer p a {
 }
 
 footer p a:hover {
-    opacity: 0.8;
+    opacity: 0.95;
 }
