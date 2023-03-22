@@ -29,11 +29,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--gray);
+    background: var(--color);
+    transition: 0.3s ease-in-out;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--color);
+    background: var(--acc-color);
 }
 
 body {
