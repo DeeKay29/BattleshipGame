@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --dark: #191D32;
+    --low-dark: #282F44;
+    --white: #FFFAFF;
+    --color: #E8002D;
+    --acc-color: #FF4F29;
+    --gray: #9DB2CE;
+}
+
+::-webkit-scrollbar {
+    width: 0.75rem;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--low-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color);
+    transition: 0.3s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--acc-color);
+}
+
+body {
+    background: var(--dark);
+}
+
+.container {
+    padding: 2rem 20%;
+}
+
+@media only screen and (max-width: 1200px) {
+    .container {
+        padding: 2rem 15%;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .container {
+        padding: 2rem 10%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        padding: 2rem 5%;
+    }
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    background: var(--color);
+    width: 6.25rem;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+nav:hover {
+    width: 17.5rem;
+    transition: all 0.5s ease-in-out;
+}
+
+nav .logo {
+    text-align: center;
+    display: flex;
+    transition: all 0.5s ease;
+    margin: 0 0 2rem;
+}
+
+nav .logo img {
+    width: 4rem;
+    height: 4rem;
+}
+
+nav .logo span {
+    font-weight: bold;
+    padding-left: 2rem;
+    font-size: 1.5rem;
+}
+
+nav a {
+    position: relative;
+    color: var(--white);
+    display: table;
+    width: 300px;
+    padding: 1rem;
+    transition: 0.3s ease-in-out;
+}
+
+nav a:hover {
+    background: var(--acc-color);
+}
+
+nav li:first-of-type a:hover {
+    background: var(--color);
+}
+
+nav a i {
+    position: relative;
+    width: 70px;
+    height: 40px;
+    top: 1rem;
+    font-size: 20px;
+    text-align: center;
+}
+
+.nav-item {
+    position: relative;
+    top: 1rem;
+    margin-left: 1rem;
+}
+
+header, main, footer {
+    padding-left: 6.25rem;
+}
+
+header {
+    text-align: center;
+    color: var(--white);
+    background: var(--dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 20vh;
+    padding-top: 5rem;
+}
+
+header a {
+    color: var(--white);
+    background: var(--color);
+    transition: 0.3s ease-in-out;
+}
+
+header a:hover {
+    background: var(--acc-color);
+}
+
+header a span {
+    padding: 0 2rem;
+}
+
+header p {
+    padding-top: 1.5rem;
+    color: var(--gray);
+}
+
+header p:first-of-type {
+    padding-top: 3rem;
+}
+
+main {
+    background-color: var(--dark);
+    padding-bottom: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+main .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+main .information {
+    width: 50%;
+    padding: 2rem 1rem;
+}
+
+main .information h2 {
+    color: var(--white);
+    padding-top: 4rem;
+}
+
+main .information h2:first-of-type {
+    padding-top: 0;
+}
+
+main .information p {
+    padding-top: 1.5rem;
+    color: var(--gray);
+}
+
+main .information ul {
+    padding-top: 1rem;
+}
+
+main .information ul li {
+    margin-left: 2rem;
+    color: var(--gray);
+}
+
+main .information ul li b {
+    color: var(--color);
+}
+
+main .information p a {
+    text-decoration: none;
+    color: var(--color);
+    transition: 0.3s ease-in-out;
+}
+
+main .information p a:hover {
+    color: var(--acc-color);
+}
+
+main .ship {
+    text-align: center;
+    width: 50%;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main .ship button {
+    font-size: 1rem;
+    background-color: var(--color);
+    color: var(--white);
+    padding: 1rem 2rem;
+    margin-top: 3rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 0 2rem 0 rgba(232, 0, 45, 1);
+    animation: pulse 2s infinite;
+    transition: all 0.3s;
+}
+
+main .ship button:hover {
+    background: var(--acc-color);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 2rem 0 rgba(232, 0, 45, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 3rem 0 rgba(232, 0, 45, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 2rem 0 rgba(232, 0, 45, 0);
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    main .ship, main .information {
+        width: 100%;
+    }
+}
+
+footer {
+    background-color: var(--dark);
+}
+
+footer p {
+    text-align: center;
+    color: var(--white);
+    padding-top: 2rem;
+    border-top: 3px solid var(--low-dark);
+}
+
+footer p a {
+    text-decoration: none;
+    color: var(--color);
+    transition: 0.3s ease-in-out;
+}
+
+footer p a:hover {
+    color: var(--acc-color);
+}
