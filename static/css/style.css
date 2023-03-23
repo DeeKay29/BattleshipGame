@@ -228,7 +228,7 @@ main .information p a:hover {
     color: var(--acc-color);
 }
 
-main .ship {
+main #about-game .ship {
     text-align: center;
     width: 50%;
     padding: 2rem 1rem;
@@ -238,7 +238,11 @@ main .ship {
     align-items: center;
 }
 
-main .ship button {
+main #about-game .ship img {
+    width: 100%;
+}
+
+main #about-game .ship button {
     font-size: 1rem;
     background-color: var(--color);
     color: var(--white);
@@ -252,7 +256,7 @@ main .ship button {
     transition: all 0.3s;
 }
 
-main .ship button:hover {
+main #about-game .ship button:hover {
     background: var(--acc-color);
 }
 
@@ -269,6 +273,49 @@ main .ship button:hover {
         transform: scale(0.95);
         box-shadow: 0 0 2rem 0 rgba(232, 0, 45, 0);
     }
+}
+
+main #about-author .banner img {
+    width: 100%;
+}
+
+main #about-author .picture {
+    width: 50%;
+}
+
+main #about-author .picture img {
+    width: 100%;
+}
+
+main #about-author .socials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+main #about-author .socials a {
+    color: var(--white);
+    background: var(--color);
+    cursor: pointer;
+    margin: 1rem;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50% 0 50% 50%;
+    transition: 0.3s ease-in-out;
+}
+
+main #about-author .socials a:hover {
+    background: var(--acc-color);
+    border-radius: 0;
+    transform: scale(1.1);
+}
+
+main #about-author .socials a i {
+    font-size: 1.5rem;
 }
 
 @media only screen and (max-width: 1200px) {
