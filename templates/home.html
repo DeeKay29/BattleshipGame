@@ -1,0 +1,22 @@
+{% extends "index.html" %} {% block contnet %}
+
+<div class="information">
+    <h2>Rules</h2>
+    <p>Hello admiral! Your opponents have taken the coast. You must go to sea. If they manage to deposit the units, our country will suffer huge losses. For the mission to succeed, you must sink all enemy fleets. Even the smallest enemy troops can cause a lot of confusion, so be careful.</p>
+    <p>Your task will be to shoot down the enemy fleet blindly. To take a shot you will be asked to enter the coordinates of the shot (e.g. A5 or J10). For your convenience, you will have your opponent's board in front of you.</p>
+    <h2>Difficulty levels</h2>
+    <p>Depending on the difficulty level, your gameplay will be more or less challenging. Remember to choose your difficulty level carefully. When you choose:</p>
+    <ul>
+        <li><b>Easy</b>: enemies get to the coast after 80 turns.</li>
+        <li><b>Medium</b>: enemies get to the coast after 60 turns.</li>
+        <li><b>Hard</b>: enemies get to the coast after 40 turns.</li>
+    </ul>
+    <h2>Author note</h2>
+    <p>Please note that the project is still in development. Any inconvenience and ideas for improvement can be reported to the contact address: <a href="mailto:dkurowski.kontakt@gmail.com">dkurowski.kontakt[at]gmail.com</a>.</p>
+</div>
+<div class="ship">
+    <a href="https://www.freepik.com/free-vector/pirate-ship-galleon-before-after-sea-battle-fight-sailboats-with-cannon-fire-vector-cartoon-set-wooden-ships-with-folded-sails-with-black-flag-broken-after-wreck-attack_24325871.htm#query=battleship%20game&position=49&from_view=search&track=ais" target="_blank"><img src="{{url_for('static', filename='./images/battleship.png')}}" alt="Ship" title="Image by upklyak on Freepik"></a>
+    <a href="{{url_for('views.game')}}"><button>Let's play</button></a>
+</div>
+
+{% endblock %}
