@@ -8,11 +8,11 @@
 
 <div align="center">
   <a href="https://github.com/DeeKay29/BattleshipGame">
-    <img src="./data/images/banner.png" alt="banner">
+    <img src="./static/images/banner.png" alt="banner">
   </a>
   <br><br><br>
   <a href="https://github.com/DeeKay29/BattleshipGame">
-    <img src="./data/images/logo.png" alt="Logo" width="80" height="80">
+    <img src="./static/images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">DeeKay</h3>
@@ -54,6 +54,10 @@ pip install beautifultable --user
 
 ```sh
 python3 -m pip install --upgrade termcolor
+```
+
+```sh
+python -m pip3 install flask
 ```
 
 ### Installation
@@ -130,6 +134,24 @@ The most important changes introduced from version **v.0.1** to version **v.0.8*
 - [x] Placing ships on board
 - [x] Converting user coordinates
 - [x] Game logic
+
+***
+
+## Useful resources
+
+The following materials proved to be very helpful when building the application. I will try to describe them as accurately as possible so that you can look into them in case of a problem.
+
+1. <a href="https://www.youtube.com/watch?v=kng-mJJby8g&ab_channel=TechWithTim" target="_blank">Make A Python Website As Fast As Possible!</a> by <a href="https://www.youtube.com/@TechWithTim" target="_blank">@TechWithTim</a> on YouTube:
+   - Flask setup,
+   - Creating views / routes,
+   - Rendering HTML,
+   - Template variables,
+   - URL parameters,
+   - Query parameters,
+   - Returning JSON,
+   - Getting JSON data,
+   - Redirect,
+   - Adding JavaScript.
 
 <!-- Links -->
 [project-link]: https://github.com/DeeKay29/BattleshipGame
