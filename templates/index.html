@@ -24,30 +24,30 @@
                     <img src="{{url_for('static', filename='./images/logo_white_wb.png')}}" alt="DK Logo">
                     <span class="nav-item">DeeKay29</span>
                 </a>
-                <li>
-                    <a href="https://github.com/DeeKay29" target="_blank">
-                        <i class="fa-brands fa-github"></i>
-                        <span class="nav-item">GitHub</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/DeeKay29/BattleshipGame" target="_blank">
-                        <i class="fa-solid fa-diagram-project"></i>
-                        <span class="nav-item">Source code</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa-solid fa-gear"></i>
-                        <span class="nav-item">Settings</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa-sharp fa-solid fa-question"></i>
-                        <span class="nav-item">Help</span>
-                    </a>
-                </li>
+            </li>
+            <li>
+                <a href="https://github.com/DeeKay29" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                    <span class="nav-item">GitHub</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/DeeKay29/BattleshipGame" target="_blank">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    <span class="nav-item">Source code</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{url_for('views.home', _anchor='about-author')}}">
+                    <i class="fa-solid fa-person-digging"></i>
+                    <span class="nav-item">About me</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-gear"></i>
+                    <span class="nav-item">Settings</span>
+                </a>
             </li>
         </ul>
     </nav>
@@ -58,10 +58,8 @@
         </div>
     </header>
     <main>
-        <section class="container">
-            {% block contnet %}
-            {% endblock %}
-        </section>
+        {% block contnet %}
+        {% endblock %}
     </main>
     <footer>
         <div class="container">
