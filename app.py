@@ -1,9 +1,8 @@
-import warnings
-from logic import GameLogic
+from flask import Flask
+from views import views
 
-# Ignore warnings
-warnings.filterwarnings("ignore", message="'BeautifulTable.__getitem__' has been deprecated")
-warnings.filterwarnings("ignore", message="'BeautifulTable.__len__' has been deprecated")
+app = Flask(__name__)
+app.register_blueprint(views, url_prefix="/views")
 
 if __name__ == "__main__":
-    GameLogic().start_game()
+    app.run(debug=True, port=8000)
