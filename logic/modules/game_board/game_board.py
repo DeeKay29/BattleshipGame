@@ -11,7 +11,8 @@ class GameBoard:
         self.row_headers = GameParameters().get_row_headers()
         self.ships = GameParameters().get_ships()
         self.board = self.create_game_board()
-    
+
+    # Create empty game board
     def create_game_board(self):
         # Create table
         game_board = table()
