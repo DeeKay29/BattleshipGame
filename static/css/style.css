@@ -12,12 +12,12 @@
 }
 
 :root {
-    --dark: #191D32;
-    --low-dark: #282F44;
-    --white: #FFFAFF;
-    --color: #E8002D;
-    --acc-color: #FF4F29;
-    --gray: #9DB2CE;
+    --dark: #191d32;
+    --low-dark: #282f44;
+    --white: #fffaff;
+    --color: #e8002d;
+    --acc-color: #ff4f29;
+    --gray: #9db2ce;
 }
 
 ::-webkit-scrollbar {
@@ -131,7 +131,9 @@ nav a i {
     margin-left: 1rem;
 }
 
-header, main, footer {
+header,
+main,
+footer {
     padding-left: 6.25rem;
 }
 
@@ -319,7 +321,8 @@ main #about-author .socials a i {
 }
 
 @media only screen and (max-width: 1200px) {
-    main .ship, main .information {
+    main .ship,
+    main .information {
         width: 100%;
     }
 }
