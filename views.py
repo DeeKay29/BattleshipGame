@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template
+from logic.board import Board
 
 views = Blueprint(__name__, "views")
 
@@ -12,4 +13,5 @@ def home():
 
 @views.route("/game", endpoint='game')
 def battleshipGame():
-    return render_template("game.html", siteName=siteName, subPageName='Game')
+    game_board = Board()
+    return render_template("game.html", siteName=siteName, subPageName='Game', board=game_board.board, headers=game_board.headers, board_size=game_board.board_size)

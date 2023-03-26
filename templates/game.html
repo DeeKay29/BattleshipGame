@@ -1,5 +1,20 @@
 {% extends "index.html" %} {% block contnet %}
 
-<section class="container"></section>
+<section id="game-board" class="container">
+    <div class="board-row">
+        <div class="board-cell board-header"></div>
+        {% for column in headers.columns %}
+        <div class="board-cell board-header">{{ column }}</div>
+        {% endfor %}
+    </div>
+    {% for row in range(board_size) %}
+    <div class="board-row">
+        <div class="board-cell board-header">{{ headers.rows[row] }}</div>
+        {% for col in range(board_size) %}
+        <div id="{{ headers.columns[col] }}{{ headers.rows[row] }}" class="board-cell"></div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</section>
 
 {% endblock %}

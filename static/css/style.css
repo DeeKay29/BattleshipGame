@@ -330,6 +330,55 @@ main #about-author .socials a i {
     font-size: 1.5rem;
 }
 
+main #game-board {
+    display: flex;
+    flex-direction: column;
+}
+
+main #game-board .board-row {
+    display: flex;
+    flex-direction: row;
+}
+
+main #game-board .board-cell {
+    color: var(--white);
+    text-align: center;
+    content: ' ';
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--low-dark);
+    font-weight: bold;
+}
+
+main #game-board .board-row:first-child .board-cell {
+    border-top: none;
+}
+
+main #game-board .board-row .board-cell:last-child {
+    border-right: none;
+}
+
+main #game-board .board-cell:first-child {
+    border-left: none;
+}
+
+main #game-board .board-row:last-child .board-cell {
+    border-bottom: none;
+}
+
+main #game-board .board-cell:not(.board-header) {
+    cursor: pointer;
+    transition: 0.15s ease-in-out;
+}
+
+main #game-board .board-cell:not(.board-header):hover {
+    background: var(--low-dark);
+    border: 1px solid var(--gray);
+}
+
 @media only screen and (max-width: 1200px) {
     main .ship,
     main .information {

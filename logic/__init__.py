@@ -1,1 +1,1 @@
-from .game_logic import GameLogic
+from .board import Board
