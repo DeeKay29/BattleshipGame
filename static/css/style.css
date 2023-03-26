@@ -149,6 +149,16 @@ header {
     padding-top: 5rem;
 }
 
+header #cursor {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% {
+        visibility: hidden;
+    }
+}
+
 header a {
     color: var(--white);
     background: var(--color);
