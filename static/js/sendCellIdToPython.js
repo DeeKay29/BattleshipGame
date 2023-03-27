@@ -1,3 +1,4 @@
+// Get all the cell IDs and send them to the server
 document.addEventListener('DOMContentLoaded', (event) => {
     var cells = document.querySelectorAll('.board-cell');
     cells.forEach((cell) => {
@@ -8,6 +9,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
 });
 
+// Function to send the cell ID to the server using fetch
 const sendCellIdToPython = (cellId) => {
     fetch('/', {
         method: 'POST',

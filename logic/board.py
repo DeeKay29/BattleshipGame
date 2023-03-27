@@ -5,13 +5,17 @@ from ship import Ship
 
 class Board:
     def __init__(self):
+        # Load game parameters from JSON file
         game_parameters_path = os.path.join(os.getcwd(), 'static', 'data', 'gameParameters.json')
         with open(game_parameters_path) as f:
             game_parameters = json.load(f)
+
+        # Get game parameters
         self.headers = game_parameters["board headers"]
         self.board_size = game_parameters["game board size"]
         self.turns = game_parameters["turns"]
 
+        # Create an empty board
         self.board = []
         for row_idx, row_header in enumerate(self.headers["rows"]):
             row = []
@@ -20,14 +24,21 @@ class Board:
                 row.append({'id': cell_id, 'ship': None, 'hit': False})
             self.board.append(row)
 
+        # Create a list of ships
         self.ships_list = []
         for ship_type, ship_data in self.ships.items():
             for i in range(ship_data['quantity']):
+                # Create a ship object
                 ship = Ship(ship_type, ship_data["size"])
+
+                # Place the ship on the board
                 self.place_ship(ship)
+
+                # Add the ship to the list of ships
                 self.ships_list.append(ship)
 
-    def generate_ships_location(self, ship):
+    def generate_ship_location(self, ship):
+        # Generate a random location and direction for a given ship
         size = ship.size
         while True:
             direction = random.choice(['horizontal', 'vertical'])
@@ -41,8 +52,10 @@ class Board:
 
             return x, y, direction
 
-    def generate_ships_coordinates(self):
+    def generate_ship_coordinates(self):
+        # Generate the coordinates of the ship based on given location
         pass
 
-    def place_ships(self):
+    def place_ship(self):
+        # Place the ship on the board
         pass
