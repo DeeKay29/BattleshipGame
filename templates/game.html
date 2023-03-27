@@ -1,5 +1,9 @@
 {% extends "index.html" %} {% block contnet %}
 
+<section id="info" class="container">
+    <p><b>Hi admiral!</b> Click on the cell to take the first shot.</p>
+</section>
+
 <section id="game-board" class="container">
     <div class="board-row">
         <div class="board-cell board-header"></div>
@@ -17,4 +21,8 @@
     {% endfor %}
 </section>
 
-{% endblock %}
+{% endblock %} {% extends "index.html" %} {% block scripts %}
+
+<script src="{{url_for('static', filename='js/sendCellIdToPython.js')}}"></script>
+
+{% endblock%}

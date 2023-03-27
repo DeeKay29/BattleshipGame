@@ -379,6 +379,10 @@ main #game-board .board-cell:not(.board-header):hover {
     border: 1px solid var(--gray);
 }
 
+main #info p {
+    color: var(--gray);
+}
+
 @media only screen and (max-width: 1200px) {
     main .ship,
     main .information {
