@@ -50,10 +50,6 @@ python.exe -m pip install --upgrade pip
 ... then install the required libraries.
 
 ```sh
-pip install beautifultable --user
-```
-
-```sh
 python3 -m pip install --upgrade termcolor
 ```
 
