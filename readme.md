@@ -1,4 +1,5 @@
 <!-- Project shields -->
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -20,7 +21,7 @@
 
 </div>
 
-***
+---
 
 # Battleship Game
 
@@ -32,7 +33,7 @@ Join the great gameplay today!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-***
+---
 
 ## Getting started
 
@@ -64,19 +65,19 @@ python -m pip3 install flask
 
 1. Clone the repo.
 
-   ```sh
-   git clone https://github.com/DeeKay29/BattleshipGame.git
-   ```
+    ```sh
+    git clone https://github.com/DeeKay29/BattleshipGame.git
+    ```
 
 2. Install required libraries.
 
-   ```sh
-   pip install
-   ```
+    ```sh
+    pip install
+    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-***
+---
 
 ## License
 
@@ -84,19 +85,19 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-***
+---
 
 ## Usage
 
 In order to launch the application, the following command should be called in the terminal:
 
 ```sh
-<your-python-directory-path>/python.exe <your-cloned-repo-path>/app.py
+your-python-directory-path/python.exe your-cloned-repo-path/app.py
 ```
 
 Launching the above file in the terminal should result in the enabling of the `localhost` server on the port of `8000`. To go to the page, use any browser and paste the link `http: //127.0.0.1: 8000/views/`. After correctly passing all the steps, you should be able to use all available functionalities. For more information, look at the <a href="#changelog">Changelog</a> section.
 
-***
+---
 
 ## Contributing
 
@@ -110,7 +111,7 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`).
 5. Open a Pull Request.
 
-***
+---
 
 ## Contact
 
@@ -122,58 +123,58 @@ Project link: [Battleship Game by @DeeKay29]([project-link])
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-***
+---
 
 ## Changelog
 
 Changes introduced in the last (**v.1.2**) update:
 
-- [x] File structure restructuring (again).
-- [x] Reconstruction of the program initiating the program: To start the server. **Note:** Launching the game requires access to the previous version. Currently, `app.py` is responsible for displaying the page, not launching the Battleship Game.
-- [x] Setting up Flask server.
-- [ ] Reconstruction of logic to launch the Battleship Game via the website.
+-   [x] File structure restructuring (again).
+-   [x] Setting up Flask server.
+-   [ ] Reconstruction of logic to launch the Battleship Game via the website.
 
 ### Previous changes
 
 Changes introduced in the **v.1.1** update:
 
-- [x] File structure restructuring
-- [x] Fixing placing ships on board
+-   [x] File structure restructuring
+-   [x] Fixing placing ships on board
 
 Changes introduced in the **v.1.0** update:
 
-- [x] Fixing bugs and making sure the program is working properly
+-   [x] Fixing bugs and making sure the program is working properly
 
 The most important changes introduced from version **v.0.1** to version **v.0.8**:
 
-- [x] Creating empty game board
-- [x] Defining game parameters
-- [x] Generating ships location
-- [x] Generating ships coordinates
-- [x] Placing ships on board
-- [x] Converting user coordinates
-- [x] Game logic
+-   [x] Creating empty game board
+-   [x] Defining game parameters
+-   [x] Generating ships location
+-   [x] Generating ships coordinates
+-   [x] Placing ships on board
+-   [x] Converting user coordinates
+-   [x] Game logic
 
-***
+---
 
 ## Useful resources
 
 The following materials proved to be very helpful when building the application. I will try to describe them as accurately as possible so that you can look into them in case of a problem.
 
 1. <a href="https://www.youtube.com/watch?v=kng-mJJby8g&ab_channel=TechWithTim" target="_blank">Make A Python Website As Fast As Possible!</a> by <a href="https://www.youtube.com/@TechWithTim" target="_blank">@TechWithTim</a> on YouTube:
-   - Flask setup,
-   - Creating views / routes,
-   - Rendering HTML,
-   - Template variables,
-   - URL parameters,
-   - Query parameters,
-   - Returning JSON,
-   - Getting JSON data,
-   - Redirect,
-   - Adding JavaScript.
+    - Flask setup,
+    - Creating views / routes,
+    - Rendering HTML,
+    - Template variables,
+    - URL parameters,
+    - Query parameters,
+    - Returning JSON,
+    - Getting JSON data,
+    - Redirect,
+    - Adding JavaScript.
 2. <a hreg="https://github.com/othneildrew/Best-README-Template" target="_blank">Best-README-Template</a> on GitHub.
 
 <!-- Links -->
+
 [project-link]: https://github.com/DeeKay29/BattleshipGame
 [contributors-shield]: https://img.shields.io/github/contributors/DeeKay29/BattleshipGame.svg?style=for-the-badge
 [contributors-url]: https://github.com/DeeKay29/BattleshipGame/graphs/contributors
