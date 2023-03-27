@@ -1,4 +1,4 @@
-{% extends "index.html" %} {% block contnet %}
+{% extends "index.html" %} {% block main %}
 
 <section id="info" class="container">
     <p><b>Hi admiral!</b> Click on the cell to take the first shot.</p>
@@ -21,7 +21,7 @@
     {% endfor %}
 </section>
 
-{% endblock %} {% extends "index.html" %} {% block scripts %}
+{% endblock %} {% block scripts %}
 
 <script src="{{url_for('static', filename='js/sendCellIdToPython.js')}}"></script>
 
