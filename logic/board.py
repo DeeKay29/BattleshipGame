@@ -60,22 +60,38 @@ class Board:
             for i in range(x, x + size):
                 # Check that the ships do not touch corners and sides
                 conditions = [
-                    # TODO : Add conditions if horizontal
+                    self.board[y][i]['ship'] is not None,
+                    x > 0 and self.board[y][i-1] is not None,
+                    x > 0 and y > 0 and self.board[y-1][i-1] is not None,
+                    y > 0 and self.board[y-1][i] is not None,
+                    y > 0 and x + size - 1 < len(self.board) and self.board[y-1][i+1] is not None,
+                    x + size - 1 < len(self.board) and self.board[y][i+1] is not None,
+                    x + size - 1 < len(self.board) and y < len(self.board) - 1 and self.board[y+1][i+1] is not None,
+                    y < len(self.board) - 1 and self.board[y+1][i] is not None,
+                    x > 0 and y < len(self.board) - 1 and self.board[y-1][i-1] is not None
                 ]
                 if any(conditions):
-                    return True, [(i, y) for i in range (x, x + size)]
-                else:
                     return False, None
+                else:
+                    return True, [(i, y) for i in range (x, x + size)]
         else:
             for i in range(y, y + size):
                 # Check that the ships do not touch corners and sides
                 conditions = [
-                    # TODO : Add conditions if vertical
+                    self.board[i][x] is not None,
+                    x > 0 and self.board[i][x-1] is not None,
+                    x > 0 and y > 0 and self.board[i-1][x-1] is not None,
+                    y > 0 and self.board[i-1][x] is not None,
+                    y < 0 and x < len(self.board) - 1 and self.board[i-1][x+1] is not None,
+                    x < len(self.board) - 1 and self.board[i][x+1] is not None,
+                    x < len(self.board) - 1 and y + size - 1 < len(self.board) - 1 and self.board[i+1][x+1] is not None,
+                    y + size - 1 < len(self.board) - 1 and self.board[i+1][x] is not None,
+                    x > 0 and y < len(self.board) - 1 and self.board[i+1][x-1] is not None
                 ]
                 if any(conditions):
-                    return True, [(x, i) for i in range(y, y + size)]
-                else:
                     return False, None
+                else:
+                    return True, [(x, i) for i in range(y, y + size)]
 
     def place_ship(self):
         # Place the ship on the board
