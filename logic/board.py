@@ -52,7 +52,7 @@ class Board:
 
             return x, y, direction
 
-    def generate_ship_coordinates(self,ship):
+    def generate_ship_coordinates(self, ship):
         size = ship.size
         x, y, direction = self.generate_ship_location()
         # Generate the coordinates of the ship based on given location
@@ -70,7 +70,7 @@ class Board:
             for i in range(y, y + size):
                 # Check that the ships do not touch corners and sides
                 conditions = [
-                    # TODO: Add conditions if vertical
+                    # TODO : Add conditions if vertical
                 ]
                 if any(conditions):
                     return True, [(x, i) for i in range(y, y + size)]
@@ -79,4 +79,24 @@ class Board:
 
     def place_ship(self):
         # Place the ship on the board
-        pass
+        for ship in self.ships_list:
+            for i in range():
+                location_found = False
+                attempts = 0
+
+            while not location_found and attempts < 100:
+                is_free, coordinates = self.generate_ship_coordinates()
+                
+                if is_free:
+                    for coordinate in coordinates:
+                        x, y = coordinate
+                        # TODO : Join x and y in ID
+                        # TODO : Update the cell
+                    location_found = True
+                else:
+                    attempts += 1
+                    
+            if attempts == 100:
+                # TODO : Clear board
+                # TODO : Place ships again
+                pass
