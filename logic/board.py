@@ -1,7 +1,7 @@
 import json
 import os
 import random
-from ship import Ship
+from .ship import Ship
 
 class Board:
     def __init__(self):
@@ -52,9 +52,30 @@ class Board:
 
             return x, y, direction
 
-    def generate_ship_coordinates(self):
+    def generate_ship_coordinates(self,ship):
+        size = ship.size
+        x, y, direction = self.generate_ship_location()
         # Generate the coordinates of the ship based on given location
-        pass
+        if direction == 'horizontal':
+            for i in range(x, x + size):
+                # Check that the ships do not touch corners and sides
+                conditions = [
+                    # TODO : Add conditions if horizontal
+                ]
+                if any(conditions):
+                    return True, [(i, y) for i in range (x, x + size)]
+                else:
+                    return False, None
+        else:
+            for i in range(y, y + size):
+                # Check that the ships do not touch corners and sides
+                conditions = [
+                    # TODO: Add conditions if vertical
+                ]
+                if any(conditions):
+                    return True, [(x, i) for i in range(y, y + size)]
+                else:
+                    return False, None
 
     def place_ship(self):
         # Place the ship on the board
