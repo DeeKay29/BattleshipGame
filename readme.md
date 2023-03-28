@@ -167,7 +167,7 @@ The following materials proved to be very helpful when building the application.
     - Getting JSON data,
     - Redirect,
     - Adding JavaScript.
-2. <a hreg="https://github.com/othneildrew/Best-README-Template" target="_blank">Best-README-Template</a> on GitHub.
+2. <a href="https://github.com/othneildrew/Best-README-Template" target="_blank">Best-README-Template</a> on GitHub.
 
 <!-- Links -->
 
