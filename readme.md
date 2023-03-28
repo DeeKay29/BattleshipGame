@@ -91,7 +91,7 @@ In order to launch the application, the following command should be called in th
 your-python-directory-path/python.exe your-cloned-repo-path/app.py
 ```
 
-Launching the above file in the terminal should result in the enabling of the `localhost` server on the port of `8000`. To go to the page, use any browser and paste the link `http: //127.0.0.1: 8000/views/`. After correctly passing all the steps, you should be able to use all available functionalities. For more information, look at the <a href="#changelog">Changelog</a> section.
+Launching the above file in the terminal should result in the enabling of the `localhost` server on the port of `8000`. To go to the page, use any browser and paste the link `http://127.0.0.1:8000/views/`. After correctly passing all the steps, you should be able to use all available functionalities. For more information, look at the <a href="#changelog">Changelog</a> section.
 
 ---
 
