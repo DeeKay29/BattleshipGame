@@ -2,6 +2,7 @@ import json
 import os
 import random
 from .ship import Ship
+from termcolor import colored
 
 class Board:
     def __init__(self):
@@ -25,21 +26,22 @@ class Board:
             self.board.append(row)
 
         # Create a list of ships
-        self.ships_list = []
-        for ship_type, ship_data in self.ships.items():
+        self.ships_list = game_parameters["ships"]
+        self.ships = []
+        for ship_type, ship_data in self.ships_list.items():
             for i in range(ship_data['quantity']):
                 # Create a ship object
                 ship = Ship(ship_type, ship_data["size"])
 
                 # Place the ship on the board
-                self.place_ship(ship)
+                self.place_ships(ship_type)
 
                 # Add the ship to the list of ships
-                self.ships_list.append(ship)
+                self.ships.append(ship)
 
-    def generate_ship_location(self, ship):
+    def generate_ship_location(self, ship_data):
         # Generate a random location and direction for a given ship
-        size = ship.size
+        size = ship_data['size']
         while True:
             direction = random.choice(['horizontal', 'vertical'])
             
@@ -52,67 +54,59 @@ class Board:
 
             return x, y, direction
 
-    def generate_ship_coordinates(self, ship):
-        size = ship.size
-        x, y, direction = self.generate_ship_location()
-        # Generate the coordinates of the ship based on given location
+    def generate_ship_coordinates(self, ship_data):
+        size = ship_data['size']
+        x, y, direction = self.generate_ship_location(ship_data)
+
+        # Generate the coordinates of the ship based on the given location
         if direction == 'horizontal':
             for i in range(x, x + size):
-                # Check that the ships do not touch corners and sides
+                # Check that the ship does not touch the corners or sides
                 conditions = [
                     self.board[y][i]['ship'] is not None,
-                    x > 0 and self.board[y][i-1] is not None,
-                    x > 0 and y > 0 and self.board[y-1][i-1] is not None,
-                    y > 0 and self.board[y-1][i] is not None,
-                    y > 0 and x + size - 1 < len(self.board) and self.board[y-1][i+1] is not None,
-                    x + size - 1 < len(self.board) and self.board[y][i+1] is not None,
-                    x + size - 1 < len(self.board) and y < len(self.board) - 1 and self.board[y+1][i+1] is not None,
-                    y < len(self.board) - 1 and self.board[y+1][i] is not None,
-                    x > 0 and y < len(self.board) - 1 and self.board[y-1][i-1] is not None
+                    x > 0 and self.board[y][i - 1]['ship'] is not None,
+                    x > 0 and y > 0 and self.board[y - 1][i - 1]['ship'] is not None,
+                    x < self.board_size - 1 and self.board[y][i + 1]['ship'] is not None,
+                    x < self.board_size - 1 and y > 0 and self.board[y - 1][i + 1]['ship'] is not None,
+                    y < self.board_size - 1 and self.board[y + 1][i]['ship'] is not None,
+                    y < self.board_size - 1 and x > 0 and self.board[y + 1][i - 1]['ship'] is not None,
+                    y < self.board_size - 1 and x < self.board_size - 1 and self.board[y + 1][i + 1]['ship'] is not None
                 ]
                 if any(conditions):
-                    return False, None
-                else:
-                    return True, [(i, y) for i in range (x, x + size)]
+                    return self.generate_ship_coordinates(ship_data)
+                self.board[y][i]['ship'] = {'type': ship_data['name'], 'size': ship_data['size']}
         else:
-            for i in range(y, y + size):
-                # Check that the ships do not touch corners and sides
+            for j in range(y, y + size):
+                # Check that the ship does not touch the corners or sides
                 conditions = [
-                    self.board[i][x] is not None,
-                    x > 0 and self.board[i][x-1] is not None,
-                    x > 0 and y > 0 and self.board[i-1][x-1] is not None,
-                    y > 0 and self.board[i-1][x] is not None,
-                    y < 0 and x < len(self.board) - 1 and self.board[i-1][x+1] is not None,
-                    x < len(self.board) - 1 and self.board[i][x+1] is not None,
-                    x < len(self.board) - 1 and y + size - 1 < len(self.board) - 1 and self.board[i+1][x+1] is not None,
-                    y + size - 1 < len(self.board) - 1 and self.board[i+1][x] is not None,
-                    x > 0 and y < len(self.board) - 1 and self.board[i+1][x-1] is not None
+                    self.board[j][x]['ship'] is not None,
+                    y > 0 and self.board[j - 1][x]['ship'] is not None,
+                    x > 0 and y > 0 and self.board[j - 1][x - 1]['ship'] is not None,
+                    y < self.board_size - 1 and self.board[j + 1][x]['ship'] is not None,
+                    x > 0 and y < self.board_size - 1 and self.board[j + 1][x - 1]['ship'] is not None,
+                    x < self.board_size - 1 and self.board[j][x + 1]['ship'] is not None,
+                    y < self.board_size - 1 and x < self.board_size - 1 and self.board[j + 1][x + 1]['ship'] is not None,
+                    j > 0 and x < self.board_size - 1 and self.board[j - 1][x + 1]['ship'] is not None
                 ]
                 if any(conditions):
-                    return False, None
-                else:
-                    return True, [(x, i) for i in range(y, y + size)]
+                    return self.generate_ship_coordinates(ship_data)
+                self.board[j][x]['ship'] = {'type': ship_data['name'], 'size': ship_data['size']}
 
-    def place_ship(self):
-        # Place the ship on the board
-        for ship in self.ships_list:
-            for i in range():
-                location_found = False
-                attempts = 0
+        return x, y, direction
 
-            while not location_found and attempts < 100:
-                is_free, coordinates = self.generate_ship_coordinates()
-                
-                if is_free:
-                    for coordinate in coordinates:
-                        x, y = coordinate
-                        # TODO : Join x and y in ID
-                        # TODO : Update the cell
-                    location_found = True
-                else:
+    def place_ships(self, ships):
+        # Places all the ships on the board
+        for ship in ships:
+            attempts = 0
+            while attempts < 10:
+                try:
+                    coordinates = self.generate_ship_coordinates(ship_data=ship)
+                    self.add_ship(ship, coordinates)
+                    break
+                except Exception as e:
+                    print(colored(f'An error occurred: {e}', 'red'))
                     attempts += 1
-                    
-            if attempts == 100:
-                # TODO : Clear board
-                # TODO : Place ships again
-                pass
+            else:
+                print(colored(f'Could not place ship on the board. Skipping...', 'yellow'))
+                continue
+            print('Ship placed on the board successfully.')
